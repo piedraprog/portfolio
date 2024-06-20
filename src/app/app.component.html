@@ -1,24 +1,3 @@
-<div class="four bg-background h-screen">
-  <div class="align-text-left">
-    <div class="flex items-end text-primary p-9 pt-28">
-      <h2 class="text-[220px] uppercase font-extrabold leading-none">José</h2>
-      <h2 class="text-[35px] uppercase font-extrabold leading-none relative-adjustment ml-2 mb-6">
-        Based in Caracas, Venezuela
-      </h2>
-    </div>
-  
-    <h2 class="text-[220px] uppercase font-extrabold  pl-9 pt-4 text-primary leading-9">Piedra</h2>
-    <h3 class="text-[60px] uppercase font-normal  pl-10 pt-14 text-primary">Software Developer</h3>
-  
-    <ul class="flex items-end text-primary pl-9 text-[20px] font-semibold">
-      <li class="hover-underline-animation">
-        <a href="https://www.instagram.com/piedraprog" target="_blank" rel="noopener noreferrer">
-          Instagram
-        </a>
-      </li> ,
-      <li class="hover-underline-animation">Tiktok</li> ,
-      <li class="hover-underline-animation">linkdn</li>
-    </ul>
-  </div>
-
+<div class="bg-background h-screen" [ngClass]="currentClass">
+  <router-outlet></router-outlet>
 </div>

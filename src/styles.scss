@@ -34,4 +34,31 @@
         transform: scaleX(1);
     }
 
+    .hover-sideline-animation {
+        position: relative;
+        display: inline-block; 
+    }
+
+    .hover-sideline-animation::after {
+        content: '';
+        position: absolute;
+        width: 20%;
+        /* Usamos calc para ajustar la longitud de la línea */
+        height: 6px;
+        bottom: 0;
+        left: var(--start-position, 0px);
+        /* Definimos la posición inicial de la línea */
+        background-color: currentColor;
+        visibility: hidden;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: all 0.3s ease-in-out;
+        border-radius: 50px;
+    }
+
+    .hover-sideline-animation:hover::after {
+        visibility: visible;
+        transform: scaleX(1);
+    }
+
 }

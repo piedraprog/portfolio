@@ -1,1 +1,70 @@
-<p>navigation works!</p>
+<div class="flex items-center h-full">
+  <div class="ml-10 w-3 h-[76vh] bg-primary"></div>
+  <ul class="font-extrabold text-[22vh] leading-10 text-primary flex-col ">
+    <li 
+      class="ml-3 hover-sideline-animation" 
+      [style.--start-position]="startPosition"
+      (mouseenter)="setStartPosition($event)"
+    >
+      <button (click)="goTo('about')">
+        About
+      </button>
+    </li>
+    <li 
+      class="hover-sideline-animation" 
+      [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
+      [style.--start-position]="startPosition"
+    >
+      <button (click)="goTo('portfolio')" (mouseenter)="setStartPosition($event)">
+        Portfolio
+      </button>
+    </li>
+    <li
+      class="hover-sideline-animation" 
+      [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
+      [style.--start-position]="startPosition"
+    >
+      <button (click)="goTo('resources')" (mouseenter)="setStartPosition($event)">
+        Resources
+      </button>
+    </li>
+    <!-- <li 
+      [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
+      [style.--start-position]="startPosition"
+    >
+      <button (click)="goTo('Resources')">
+        Blog
+      </button>
+      
+    </li> -->
+    <li 
+      class="hover-sideline-animation" 
+      [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
+      [style.--start-position]="startPosition"
+    >
+      <button (click)="goTo('contact')"  (mouseenter)="setStartPosition($event)">
+        Contact
+      </button>
+    </li>
+  </ul>
+
+  <div class="nav h-screen w-1/2">
+    <button (click)="goTo('home')" class="
+      absolute 
+      top-16 
+      right-16
+      mt-4 mr-4  
+      rounded-full 
+      w-8 h-8 flex 
+      items-center 
+      justify-center 
+      font-semibold
+      text-[6vh]
+      text-primary
+      hover:text-accent
+    ">
+      X
+    </button>
+
+  </div>
+</div>
