@@ -9,7 +9,23 @@
 
 }
 
+
+
 @layer components {
+
+    .show-icon {
+        transform: translateX(10px);
+        /* Ajusta según necesites */
+        opacity: 1;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    i {
+        transform: translateX(-5px);
+        opacity: 0;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
     .hover-underline-animation {
         position: relative;
     }
@@ -38,16 +54,14 @@
         position: relative;
         display: inline-block; 
     }
-
+    
     .hover-sideline-animation::after {
         content: '';
         position: absolute;
         width: 20%;
-        /* Usamos calc para ajustar la longitud de la línea */
         height: 6px;
         bottom: 0;
         left: var(--start-position, 0px);
-        /* Definimos la posición inicial de la línea */
         background-color: currentColor;
         visibility: hidden;
         transform: scaleX(0);
@@ -55,10 +69,33 @@
         transition: all 0.3s ease-in-out;
         border-radius: 50px;
     }
-
-    .hover-sideline-animation:hover::after {
+    
+    .hover-sideline-animation::before {
+        content: '';
+        position: absolute;
+        width: 30px; /* Ajusta el ancho de la flecha */
+        height: 30px; /* Ajusta la altura de la flecha */
+        border-right: 6px solid currentColor; /* Grosor de la línea diagonal derecha */
+        border-top: 6px solid currentColor; /* Grosor de la línea diagonal superior */
+        bottom: 0px; /* Ajusta la posición vertical de la flecha */
+        left: calc(var(--start-position, 0px) + 18%); /* Ajusta la posición horizontal de la flecha */
+        visibility: hidden;
+        transform: scale(0);
+        transform-origin: left;
+        transition: all 0.3s ease-in-out;
+        transform: rotate(45deg); /* Rotación para formar la flecha */
+    }
+    
+    .hover-sideline-animation:hover::after,
+    .hover-sideline-animation:hover::before {
         visibility: visible;
         transform: scaleX(1);
     }
+    
+    .hover-sideline-animation:hover::before {
+        transform: scale(1) rotate(45deg);
+    }
+    
 
+    
 }

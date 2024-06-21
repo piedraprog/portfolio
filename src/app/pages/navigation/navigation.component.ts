@@ -1,7 +1,8 @@
-import { Component, ElementRef } from '@angular/core';
-import { BehaviorSubject, Observable, Subscription, map } from 'rxjs';
+import { Component } from '@angular/core';
+import { Observable, Subscription, map } from 'rxjs';
 import { ScreenSizeService } from '../../services/screensize.service';
 import { Router } from '@angular/router';
+import { ShowIconService } from '../../services/show-arrow.service';
 
 @Component({
   selector: 'app-navigation',
@@ -17,12 +18,15 @@ export class NavigationComponent {
 
   startPosition: string = "";
 
+  iconClass: string = '';
+
   constructor(
     private screenSizeService: ScreenSizeService,
     private router: Router,
-    private elementRef: ElementRef
+    private showIconService: ShowIconService
   ) {
     this.isScreenHeightValid$ = this.screenSizeService.isScreenHeightValid();
+    
   }
 
   setStartPosition(event: MouseEvent): void {
@@ -32,6 +36,10 @@ export class NavigationComponent {
   }
 
   ngOnInit() {
+    this.showIconService.iconClass$.subscribe(className => {
+      this.iconClass = className;
+    });
+    
     this.screenWidthSubscription = this.screenSizeService.getScreenWidth().subscribe(width => {
       this.screenWidth = width;
       this.isScreenWidthGreaterThan800 = width > 800;
@@ -46,4 +54,11 @@ export class NavigationComponent {
     this.router.navigate([`/${route}`])
   }
 
+  onMouseEnter(): void {
+    this.showIconService.showIcon();
+  }
+
+  onMouseLeave(): void {
+    this.showIconService.hideIcon();
+  }
 }
