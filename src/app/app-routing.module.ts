@@ -29,10 +29,6 @@ const routes: Routes = [
     component: ProjectsComponent
   },
   {
-    path:"resources",
-    component: HomepageComponent
-  },
-  {
     path:"contact",
     component: ContactComponent
   }

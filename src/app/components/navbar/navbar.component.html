@@ -1,1 +1,10 @@
-<p>navbar works!</p>
+<ul class="flex space-x-4 text-[3vh] font-semibold text-primary">
+  <li *ngFor="let item of items">
+    <button 
+      (click)="goTo(item)" 
+      [ngClass]="currentRoute == item ? 'underline decoration-4 underline-offset-4' : 'hover-underline-animation'"
+    >
+      {{item}}
+    </button>
+  </li>
+</ul>
