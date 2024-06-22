@@ -13,6 +13,7 @@ import { TableComponent } from './components/table/table.component';
 import { DetailPageComponent } from './components/detail-page/detail-page.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ScrollingTextComponent } from './components/scrolling-text/scrolling-text.component';
+import { ProjectHeroComponent } from './components/project-hero/project-hero.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ScrollingTextComponent } from './components/scrolling-text/scrolling-te
     DetailPageComponent,
     FooterComponent,
     ScrollingTextComponent,
+    ProjectHeroComponent,
   ],
   imports: [
     BrowserModule,
