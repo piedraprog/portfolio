@@ -1,1 +1,50 @@
-<p>about works!</p>
+<section class="flex-col text-primary">
+  <div class="nav flex justify-end mr-14 pt-5">
+    <app-navbar></app-navbar>
+  </div>
+
+  <div class="flex h-[90vh]">
+    <h1 class=" font-extrabold text-[24vh] self-end ml-4 uppercase">{{pageName}}</h1>
+  </div>
+</section>
+
+<app-scrolling-text [text]="pageName"></app-scrolling-text>
+
+<section class="pt-20 bg-background text-primary h-[190vh]">
+  <div class="p-10 relative w-full">
+    <p class="absolute font-semibold text-2xl capitalize top-0 right-20">last update // 2024</p>
+  </div>
+  <article class="w-full flex h-[90vh]">
+    <p class="text-justify ml-20 font-semibold text-xl w-1/2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro pariatur vero libero fugiat cum blanditiis!
+      Eligendi, aliquam quibusdam. Ducimus, velit hic? Quod pariatur cupiditate quos dolor rerum debitis veritatis
+      quo?
+      Deleniti quia corporis totam est repellendus officiis atque nobis, nemo error blanditiis ut asperiores,
+      porro ipsam sunt aliquam excepturi, numquam et quisquam? Officiis, quo at officia debitis reprehenderit
+      veniam obcaecati?
+      Eaque architecto saepe ea, consectetur velit dolore ipsa nulla magni. Ducimus amet fugiat quos perspiciatis
+      ea porro velit atque. Sint earum laborum enim explicabo nostrum mollitia vero, molestias error fuga.
+      Ipsum nisi quos explicabo vel omnis laboriosam quibusdam ea esse at iste, doloremque libero debitis
+      consectetur quod. Molestias molestiae enim nobis commodi illum quia magni aliquam repellendus? Aspernatur,
+      vitae sapiente.
+      Quam placeat alias adipisci autem odit in delectus. Dolorem eveniet cumque soluta hic accusamus, numquam
+      consequatur voluptas! Eum veritatis ipsa quo voluptatibus totam non quae et, soluta delectus, obcaecati
+      perferendis.
+    </p>
+  
+    <div class="relative w-1/2 flex items-center justify-center">
+      <div class="absolute h-[72vh] w-[72vh] bg-primary rounded-full z-10 top-0 left-20">
+        
+      </div>
+      <div class="absolute h-[72vh] w-[72vh] z-20 top-0 left-20">
+        <img src="assets/imgs/pp2.png" alt="Imagen Circular" class="w-full h-full rounded-full object-cover grayscale">
+        <!-- <div class="absolute inset-0 rounded-full bg-purple-50 opacity-50"></div> -->
+      </div>
+      
+    </div>
+  </article>
+
+
+  <app-table [tableData]="tableInfo" [tableColums]="tableColums"></app-table>
+</section>
+

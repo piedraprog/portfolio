@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TableComponent } from './components/table/table.component';
 import { DetailPageComponent } from './components/detail-page/detail-page.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ScrollingTextComponent } from './components/scrolling-text/scrolling-text.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +25,13 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     TableComponent,
     DetailPageComponent,
-    FooterComponent
+    FooterComponent,
+    ScrollingTextComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

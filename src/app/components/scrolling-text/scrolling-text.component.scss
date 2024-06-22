@@ -1,0 +1,36 @@
+.loop-text {
+  font-size: clamp(5rem, 20vw, 10rem);
+  text-transform: uppercase;
+  padding: 0 0.25em;
+}
+
+.right {
+  animation: loopRight 10s infinite linear;
+}
+
+.left {
+  animation: loopLeft 10s infinite linear;
+}
+
+@keyframes loopLeft {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+
+}
+@keyframes loopRight {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+
+}
