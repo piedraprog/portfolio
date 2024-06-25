@@ -13,8 +13,8 @@ export class AppComponent implements OnInit{
   classList: string[] = [
     'greenVeige', 
     'blueVeige', 
-    'blueRedWine', 
-    'blueOrange', 
+    // 'blueRedWine', 
+    // 'blueOrange', 
     'class5'
   ];
 
