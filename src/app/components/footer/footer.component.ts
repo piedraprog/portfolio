@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { socialMediaUrls, socials } from '../../interfaces/social.interfaces';
 
 @Component({
   selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
-})
+  template: `
+    <div class="h-1/4 flex justify-between p-10 text-[3vh] font-semibold">
+      <p class="flex items-center text-left text-wrap w-[10%]">Jose Piedra, Developer</p>
+      <app-socials-nav class="flex items-center"></app-socials-nav>
+      <p class="flex items-center">&copy; 2024</p>
+    </div>
+  `})
+  
 export class FooterComponent {
-
+  socialMediaUrls: socialMediaUrls[] = socials;
 }

@@ -14,6 +14,7 @@ import { DetailPageComponent } from './components/detail-page/detail-page.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { ScrollingTextComponent } from './components/scrolling-text/scrolling-text.component';
 import { ProjectHeroComponent } from './components/project-hero/project-hero.component';
+import { SocialsNavComponent } from './components/socials-nav/socials-nav.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ProjectHeroComponent } from './components/project-hero/project-hero.com
     FooterComponent,
     ScrollingTextComponent,
     ProjectHeroComponent,
+    SocialsNavComponent,
   ],
   imports: [
     BrowserModule,
