@@ -13,17 +13,19 @@ export class AppComponent implements OnInit{
   classList: string[] = [
     'greenVeige', 
     'blueVeige', 
-    // 'blueRedWine', 
-    // 'blueOrange', 
-    'class5'
+    'monochrome',
+    'blueRedWine', 
+    'blueOrange', 
   ];
 
   ngOnInit(): void {
-    if (this.currentClass === 'monochrome') {
+
+    // if (this.currentClass === 'monochrome') {
       const randomIndex = Math.floor(Math.random() * this.classList.length);
+      console.log(randomIndex)
       this.currentClass = this.classList[randomIndex];
-    } else {
-      this.currentClass = 'monochrome';
-    }
+    // } else {
+    //   this.currentClass = 'monochrome';
+    // }
   }
 }

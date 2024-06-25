@@ -16,7 +16,7 @@ module.exports = {
       monochrome: {
         'primary': '#272829',
         'background': '#FFF6E0',
-        'brand': '#000000',
+        'accent': '#000000',
       },
       greenVeige : {
         'primary': '#105717',

@@ -6,47 +6,40 @@ import { Component } from '@angular/core';
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
-  pageName = "about me"
+  pageName: string = "about me"
 
-  tableColums: any[] = [
-    {
-      name: "Job Description",
-      cell: "job"
-    },
-    {
-      name: "Company Name",
-      cell: "company"
-    },
-    {
-      name: "Time",
-      cell: "time"
-    }
-  ]
+  linkdnUrl: string = "https://www.linkedin.com/in/drapie/"
+
+  tableColums: any[] = ["job","company","time"]
+  
   tableInfo: any[] = [
     {
-      job: "Lorem Ipsum",
+      job: "Frontend Developer",
       company: "Drapie Inc.",
-      time: "3yrs"
+      time: "feb. 2023 - feb. 2024"
     },
     {
-      job: "Lorem Ipsum",
+      job: "Frontend Developer",
       company: "Drapie Inc.",
-      time: "3yrs"
+      time: "may. 2022 - ago. 2022 "
     },
     {
-      job: "Lorem Ipsum",
+      job: "Intern",
       company: "Drapie Inc.",
-      time: "3yrs"
+      time: "may. 2021 - mar. 2022"
     },
     {
-      job: "Lorem Ipsum",
+      job: "Freelance Developer",
       company: "Drapie Inc.",
-      time: "3yrs"
+      time: "may. 2021 - mar. 2022"
     },
-    {
-      job: "Lorem Ipsum",
-      company: "Drapie Inc.",
-      time: "3yrs"
-    }
   ]
+
+  aboutme: string = "I have 4 years of experience as a Front-end Developer. I have worked with technologies such as Angular and Node.js to create user-centric software solutions. My core competencies include platform architecture design, efficient coding and optimizing applications for high volume of requests."
+
+  aboutme2: string = "  In my recent role at Tikket, I have worked closely with Product Owners and development teams, contributing to the design and development of innovative functionality and continuously improving the user experience. I value a culture of teamwork, effective communication and the constant pursuit of excellence. I am committed to bringing diverse perspectives and enriching experiences to the team, always with a focus on collective success and the achievement of shared goals."
+
+  goTo() {
+    window.open(this.linkdnUrl, "_blank");
+  }
 }

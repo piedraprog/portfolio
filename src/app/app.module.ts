@@ -15,6 +15,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ScrollingTextComponent } from './components/scrolling-text/scrolling-text.component';
 import { ProjectHeroComponent } from './components/project-hero/project-hero.component';
 import { SocialsNavComponent } from './components/socials-nav/socials-nav.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AngularMaterialModule } from './material-module.module';
 
 @NgModule({
   declarations: [
@@ -35,9 +37,11 @@ import { SocialsNavComponent } from './components/socials-nav/socials-nav.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    
+    AngularMaterialModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
