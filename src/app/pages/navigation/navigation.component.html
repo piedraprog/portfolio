@@ -1,5 +1,5 @@
 <div class="flex items-center h-full">
-  <div class="ml-10 w-3 h-[76vh] bg-primary"></div>
+  <div class="ml-10 w-3 h-[56vh] bg-primary"></div>
   <ul class="font-extrabold text-[22vh] leading-10 text-primary flex-col ">
     <li 
       class="ml-3 hover-sideline-animation" 
@@ -19,7 +19,7 @@
         Portfolio
       </button>
     </li>
-    <li
+    <!-- <li
       class="hover-sideline-animation" 
       [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
       [style.--start-position]="startPosition"
@@ -27,7 +27,7 @@
       <button (click)="goTo('resources')" (mouseenter)="setStartPosition($event)">
         Resources
       </button>
-    </li>
+    </li> -->
     <!-- <li 
       [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
       [style.--start-position]="startPosition"
