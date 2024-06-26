@@ -1,4 +1,4 @@
-<section class="flex-col text-primary">
+<section class="flex-col text-primary h-screen">
   <div class="nav flex justify-end mr-14 pt-5">
     <app-navbar></app-navbar>
   </div>
@@ -7,5 +7,25 @@
     <h1 class=" font-extrabold text-[24vh] self-end ml-4 uppercase">{{pageName}}</h1>
   </div>
 </section>
+
+<section id="projects">
+
+  <div 
+    *ngFor="let project of projectsInfo; index as i" 
+    class="flex h-screen cursor-pointer border-4 border-black" 
+    (click)="openProject(project)" 
+  >
+    <div class="w-1/2 p-10 flex-nowrap flex items-center" >
+      <div>
+        <h3 class="text-6xl uppercase  font-bold text-nowrap text-left">project title</h3>
+        <p class="w-1/2 font-medium text-xl text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio maxime quisquam sit consectetur tenetur pariatur quae sapiente illo fugiat odit laboriosam, </p>
+      </div>
+    </div>
+    <div class="w-1/2 bg-[#EED90D] flex justify-center items-center ">
+      <img src="assets/imgs/icon.png" alt="" class="w-96">
+    </div>
+  </div>
+</section>
+
 
 <app-footer></app-footer>

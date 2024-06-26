@@ -9,4 +9,11 @@ export class ProjectsComponent {
 
   pageName: string = "portfolio"
 
+  projectsInfo: any[] = ['one','two','three','four']
+
+
+  openProject(projectId: string) {
+    console.log(projectId)
+  }
+
 }
