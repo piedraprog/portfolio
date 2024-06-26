@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { projects, projectsData } from '../../interfaces/projects.interfaces';
 
 @Component({
   selector: 'app-projects',
@@ -9,7 +10,7 @@ export class ProjectsComponent {
 
   pageName: string = "portfolio"
 
-  projectsInfo: any[] = ['one','two','three','four']
+  projectsInfo: projects[] = projectsData
 
 
   openProject(projectId: string) {

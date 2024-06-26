@@ -9,20 +9,18 @@
 </section>
 
 <section id="projects">
-
-  <div 
-    *ngFor="let project of projectsInfo; index as i" 
-    class="flex h-screen cursor-pointer border-4 border-black" 
-    (click)="openProject(project)" 
-  >
-    <div class="w-1/2 p-10 flex-nowrap flex items-center" >
+  <div *ngFor="let project of projectsInfo; index as i" class="flex h-screen cursor-pointer"
+    (click)="openProject(project.id)">
+    <div class="w-1/2 p-10 flex-nowrap flex items-center">
       <div>
-        <h3 class="text-6xl uppercase  font-bold text-nowrap text-left">project title</h3>
-        <p class="w-1/2 font-medium text-xl text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio maxime quisquam sit consectetur tenetur pariatur quae sapiente illo fugiat odit laboriosam, </p>
+        <h3 class="text-6xl uppercase  font-bold text-wrap text-left">{{project.title}}</h3>
+        <p class="w-3/4 font-medium text-xl text-left">
+          {{project.caption}}
+        </p>
       </div>
     </div>
-    <div class="w-1/2 bg-[#EED90D] flex justify-center items-center ">
-      <img src="assets/imgs/icon.png" alt="" class="w-96">
+    <div class="w-1/2 flex justify-center items-center" [style.background-color]="project.bannnerColor">
+      <img [src]="project.bannerUrl" alt="project_img" class="w-96">
     </div>
   </div>
 </section>
