@@ -9,9 +9,9 @@
 </section>
 
 <section id="projects">
-  <div *ngFor="let project of projectsInfo; index as i" class="flex h-screen cursor-pointer"
+  <div *ngFor="let project of projectsInfo; index as i" class="flex h-screen cursor-pointer focusback-hover bg-background"
     (click)="openProject(project.id)">
-    <div class="w-1/2 p-10 flex-nowrap flex items-center">
+    <div class="w-1/2 p-10 flex-nowrap flex items-center ">
       <div>
         <h3 class="text-6xl uppercase  font-bold text-wrap text-left">{{project.title}}</h3>
         <p class="w-3/4 font-medium text-xl text-left">
