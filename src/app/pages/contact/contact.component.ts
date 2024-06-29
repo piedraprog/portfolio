@@ -6,18 +6,20 @@ import { Clipboard } from "@angular/cdk/clipboard";
 @Component({
   selector: 'app-contact',
   template: `
-    <section class="flex-col text-primary">
-      <div class="nav flex justify-end mr-14 pt-5">
-        <app-navbar></app-navbar>
-      </div>
+    <section class="flex flex-col text-primary">
+      <app-navbar class="nav flex justify-end mr-4 pt-5 xxs:mr-14 xxs:pt-0"></app-navbar>
 
-      <div class="h-[90vh] flex items-center justify-center">
+      <div class="h-[70vh] flex items-center justify-center xxs:h-[50vh]">
         <div class="text-center">
-          <p class="font-semibold text-xl  uppercase text-center">
+          <p class="font-semibold text-lg uppercase text-center xxs:text-sm">
             send me a message
           </p>
           <button (click)="showSuccess()">
-            <h1 class="font-bold text-[18vh] uppercase text-center hover:text-accent">
+            <h1 class="
+              font-bold text-[10vh] uppercase text-center 
+              hover:text-accent 
+              xxs:text-4xl"
+            >
               {{email}}
             </h1>
           </button>
@@ -25,20 +27,20 @@ import { Clipboard } from "@angular/cdk/clipboard";
       </div>
     </section>
 
-    <section class="bg-background text-primary pt-32">
-      <div class=" flex items-center justify-center">
+    <section class="bg-background text-primary pt-16 xxs:pt-0">
+      <div class="flex items-center justify-center">
         <div class="text-center">
-          <p class="font-semibold text-xl  uppercase text-center">
-            or reach me in
+          <p class="font-semibold text-lg uppercase text-center xxs:text-xl">
+            or reach me on
           </p>
           <ul
             *ngFor="let social of socialMediaUrls"
-            class="font-bold text-[20vh] uppercase text-center leading-tight hover:text-accent"
+            class="font-bold text-[10vh] uppercase text-center leading-tight hover:text-accent xxs:text-4xl"
           >
             <a [href]="social.url" target="_blank" rel="noopener noreferrer">
               {{social.social}}
             </a>
-        </ul>
+          </ul>
         </div>
       </div>
     </section>

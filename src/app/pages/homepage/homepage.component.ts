@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { map } from 'rxjs';
 import { TypewriterService } from '../../services/typewriter.service';
 import { Router } from '@angular/router';
@@ -15,17 +15,32 @@ export class HomepageComponent {
   
   showArrow: boolean = false;
 
+  callToAction: string = "";
+
   iconClass: string = '';
+  screenWidth: number = 0;
+  screenHeight: number = 0;
+  
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?: any) {
+    this.screenWidth = window.innerWidth;
+    this.screenHeight = window.innerHeight;
+  }
 
   constructor(
     private router: Router,
     private typewriterService: TypewriterService,
-    private showIconService: ShowIconService
+    private showIconService: ShowIconService,
   ) { 
+    this.getScreenSize()
+
+    this.callToAction = this.screenWidth > 600 ? `I've to tell you where's the nav?` : 'Need help finding the navigation? Click here!';
     this.showIconService.iconClass$.subscribe(className => {
       this.iconClass = className;
     });
   }
+
+  
 
   
 

@@ -1,8 +1,10 @@
-<div class="flex items-center align-text-left h-full w-full text-primary">
+<!-- <div class="flex items-center align-text-left h-full w-full text-primary">
   <div class="flex-col ml-10 ">
-    <div class="flex items-end ml-3">
-      <h2 class="text-[28vh] uppercase font-extrabold leading-none">José</h2>
-      <h2 class="text-[30px] uppercase font-semibold leading-none relative-adjustment  mb-6">
+    <div class="flex items-end ml-3 ">
+      <h2 class="text-[28vh] uppercase font-extrabold leading-none max-xxs:text-[14vh]">
+        José
+      </h2>
+      <h2 class="text-[30px] uppercase font-semibold leading-none relative-adjustment mb-6 xxs:text-[15px]">
         Based in Caracas, Venezuela
       </h2>
     </div>
@@ -15,9 +17,9 @@
     </h3>
     <div class="flex w-full justify-between">
 
-      <app-socials-nav class="flex items-end text-[3vh] font-semibold ml-3"></app-socials-nav>
-    
-      <div class="spacer"></div>
+      <app-socials-nav 
+        class="flex items-end text-[3vh] font-semibold ml-3"
+      ></app-socials-nav>
     </div>
   </div>
 
@@ -32,5 +34,47 @@
       <i [ngClass]="iconClass" class="transition-transform duration-300"></i>
     </button>
   </div>
-</div>
+</div> -->
 
+<div class="flex items-center justify-center h-screen w-full max-xs:h-[90%] text-primary max-xs:flex-col overflow-x-hidden">
+  <div class="flex flex-col items-center md:items-start md:ml-10">
+    <div class="flex flex-col items-center xs:flex-row xs:items-end ml-0 max-xs:ml-0 max-xs:pt-52">
+      <h2 class="text-[10vh] max-xs:text-[14vh] md:text-[28vh] uppercase font-extrabold leading-none ml-3">
+        José
+      </h2>
+      <h2 class="
+        text-[20px] 
+        max-xs:text-[18px] sm:text-[30px] 
+        uppercase font-semibold leading-none relative-adjustment mb-2 xs:mb-6"
+      >
+        Based in Caracas, Venezuela
+      </h2>
+    </div>
+
+    <h2 class="text-[10vh] xs:text-[14vh] sm:text-[20vh] md:text-[28vh] uppercase font-extrabold leading-10 pt-4 xs:pt-8 sm:pt-12">
+      {{typedText$ | async}}
+    </h2>
+    <h3 class="text-[4vh] xs:text-[5vh] sm:text-[6vh] uppercase font-normal pt-8 xs:pt-12 sm:pt-16 ml-1 sm:ml-3">
+      {{ typedTitle$ | async}}
+    </h3>
+    <div class="flex w-full md:justify-start max-xs:justify-center pt-4 xs:pt-6 sm:pt-8">
+      <app-socials-nav 
+        class="flex text-[2vh] xs:text-[3vh] font-semibold xs:ml-3"
+      >
+      </app-socials-nav>
+    </div>
+  </div>
+
+  <div class="flex justify-center md:justify-center w-full md:w-1/3 h-full pt-4 md:pt-[-4rem]">
+    <button 
+      class="text-[2vh] xs:text-[3vh] font-semibold self-end mb-8 xs:mb-16 md:mb-36 xs:text-nowrap" 
+      (click)="gotoNav()"
+      (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()"
+    >
+      {{ callToAction }}
+      <i [ngClass]="iconClass" class="transition-transform duration-300"></i>
+    </button>
+    
+  </div>
+</div>
