@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { socialMediaUrls, socials } from '../../interfaces/social.interfaces';
+import { ToastrService } from 'ngx-toastr';
+import { Clipboard } from "@angular/cdk/clipboard";
 
 @Component({
   selector: 'app-contact',
@@ -14,9 +16,11 @@ import { socialMediaUrls, socials } from '../../interfaces/social.interfaces';
           <p class="font-semibold text-xl  uppercase text-center">
             send me a message
           </p>
-          <h1 class="font-bold text-[18vh] uppercase text-center">
-            {{email}}
-          </h1>
+          <button (click)="showSuccess()">
+            <h1 class="font-bold text-[18vh] uppercase text-center hover:text-accent">
+              {{email}}
+            </h1>
+          </button>
         </div>
       </div>
     </section>
@@ -29,7 +33,7 @@ import { socialMediaUrls, socials } from '../../interfaces/social.interfaces';
           </p>
           <ul
             *ngFor="let social of socialMediaUrls"
-            class="font-bold text-[20vh] uppercase text-center leading-tight"
+            class="font-bold text-[20vh] uppercase text-center leading-tight hover:text-accent"
           >
             <a [href]="social.url" target="_blank" rel="noopener noreferrer">
               {{social.social}}
@@ -46,4 +50,21 @@ export class ContactComponent {
   email: string = "hello@drapie.dev"
 
   socialMediaUrls: socialMediaUrls[] = socials;
+
+  constructor(
+    private toastr: ToastrService,
+    private clipboard: Clipboard
+  ) { }
+
+  showSuccess() {
+    this.clipboard.copy(this.email);
+
+
+    this.toastr.success('Succesfull', 'Copy to clipboard', {
+      timeOut: 1500,
+      positionClass: 'toast-bottom-right'
+    });
+
+
+  }
 }

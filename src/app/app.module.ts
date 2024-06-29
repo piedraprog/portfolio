@@ -18,6 +18,8 @@ import { SocialsNavComponent } from './components/socials-nav/socials-nav.compon
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AngularMaterialModule } from './material-module.module';
 
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ import { AngularMaterialModule } from './material-module.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     provideAnimationsAsync()
