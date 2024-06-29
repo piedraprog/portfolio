@@ -5,6 +5,7 @@ export interface projects {
   stack: string[];
   date: string[];
   tags: string[];
+  role: string;
   platforms: string[];
   description: string;
   bannerUrl: string;
@@ -17,14 +18,15 @@ export interface projects {
 
 export const projectsData: projects[] = [
   {
-    id: "1",
+    id: "1", 
     title: "Escuela de Nada API",
     caption: "This is a RESTful API based on the Escuela de Nada podcast. You will have access to a database with information about the best moments, characters and episodes created within the podcast universe. You can also add information and keep the data updated.",
     stack: ["NodeJs", "MongoDB", "ExpressJs", "Javascript"],
     date: ["2021"],
     tags: ["Javascript", "NodeJs", "MongoDB", "ExpressJS"],
+    role: "Software Developer",
     platforms: ["Desktop", "Web"],
-    description: "This is a RESTful API based on the Escuela de Nada podcast. You will have access to a database with information about the best moments, characters and episodes created within the podcast universe. You can also add information and keep the data updated.The goal is to save the podcast info and make it available for any project around it.in the api you will have the follow info: moments: this is the best moments inserted by the community.episodes: infomation about the apisodes of the podcast .characters: infomation about the characters created in the podcast.",
+    description: "This is a RESTful API based on the Escuela de Nada podcast, providing access to a database with information about the best moments, characters, and episodes created within the podcast universe. You can add and update information to keep the data current, making it available for any related project.",
     bannerUrl: "https://res.cloudinary.com/diqksh5n6/image/upload/v1719443174/icon_v8cnki.png",
     bannnerColor: "#FFC500",
     imgExplanationUrls: [

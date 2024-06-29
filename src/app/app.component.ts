@@ -14,8 +14,8 @@ export class AppComponent implements OnInit{
     'greenVeige', 
     'blueVeige', 
     'monochrome',
-    'blueRedWine', 
-    'blueOrange', 
+    // 'blueRedWine', 
+    // 'blueOrange', 
   ];
 
   ngOnInit(): void {

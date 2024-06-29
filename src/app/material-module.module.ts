@@ -3,14 +3,19 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 
 
+// CORE UI ANGULAR 
+import { CarouselModule } from '@coreui/angular';
+
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MatTableModule
+    MatTableModule,
+    CarouselModule
   ], 
   exports:[
-    MatTableModule
+    MatTableModule,
+    CarouselModule
   ]
 })
 export class AngularMaterialModule { }
