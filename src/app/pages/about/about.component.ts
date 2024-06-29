@@ -15,22 +15,22 @@ export class AboutComponent {
   tableInfo: any[] = [
     {
       job: "Frontend Developer",
-      company: "Drapie Inc.",
+      company: "Tikket",
       time: "feb. 2023 - feb. 2024"
     },
     {
       job: "Frontend Developer",
-      company: "Drapie Inc.",
+      company: "Bluesensor",
       time: "may. 2022 - ago. 2022 "
     },
     {
       job: "Intern",
-      company: "Drapie Inc.",
+      company: "Reaseguradora Delta ",
       time: "may. 2021 - mar. 2022"
     },
     {
       job: "Freelance Developer",
-      company: "Drapie Inc.",
+      company: "Freelance",
       time: "may. 2021 - mar. 2022"
     },
   ]
