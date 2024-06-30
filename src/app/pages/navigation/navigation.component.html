@@ -1,6 +1,6 @@
 <div class="flex items-center h-full">
-  <div class="ml-10 w-3 h-[56vh] bg-primary"></div>
-  <ul class="font-extrabold text-[22vh] leading-10 text-primary flex-col ">
+  <div class="ml-10 w-3 md:h-[46vh] bg-primary"></div>
+  <!-- <ul class="font-extrabold text-[22vh] leading-10 text-primary flex-col ">
     <li 
       class="ml-3 hover-sideline-animation" 
       [style.--start-position]="startPosition"
@@ -19,7 +19,7 @@
         Portfolio
       </button>
     </li>
-    <!-- <li
+    <li
       class="hover-sideline-animation" 
       [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
       [style.--start-position]="startPosition"
@@ -27,8 +27,8 @@
       <button (click)="goTo('resources')" (mouseenter)="setStartPosition($event)">
         Resources
       </button>
-    </li> -->
-    <!-- <li 
+    </li>
+    <li 
       [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
       [style.--start-position]="startPosition"
     >
@@ -36,7 +36,7 @@
         Blog
       </button>
       
-    </li> -->
+    </li>
     <li 
       class="hover-sideline-animation" 
       [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
@@ -46,7 +46,30 @@
         Contact
       </button>
     </li>
+  </ul> -->
+
+  <ul class="
+    font-extrabold text-[10vh] 
+    xs:text-[10vh] md:text-[24vh] 
+    leading-10 text-primary flex-col mt-[-40px] 
+    xs:mt-[-60px] sm:mt-[-80px]">
+    
+    <li
+      *ngFor="let item of menuItems; let i = index"
+      class="ml-1 max-xs:ml-[-20px] hover-sideline-animation"
+      [style.--start-position]="startPosition"
+      [ngClass]="
+        (isScreenHeightValid$ | async) ? 
+        (i === 0 ? '' : 'pt-[6rem] xs:pt-[7rem] sm:pt-[8rem] md:pt-[9rem]') : 
+        'pt-[4rem] xs:pt-[5rem] sm:pt-[6rem] md:pt-[6rem]' "
+      (mouseenter)="setStartPosition($event)"
+    >
+      <button (click)="goTo(item.route)">
+        {{ item.label }}
+      </button>
+    </li>
   </ul>
+  
 
   <div class="nav h-screen w-1/2">
     <button (click)="goTo('home')" class="

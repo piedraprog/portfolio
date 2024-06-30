@@ -20,6 +20,14 @@ export class NavigationComponent {
 
   iconClass: string = '';
 
+  menuItems = [
+    { label: 'About', route: 'about' },
+    { label: 'Portfolio', route: 'portfolio' },
+    // Uncomment and add more items as needed
+    // { label: 'Resources', route: 'resources' },
+    { label: 'Contact', route: 'contact' }
+  ];
+
   constructor(
     private screenSizeService: ScreenSizeService,
     private router: Router,
