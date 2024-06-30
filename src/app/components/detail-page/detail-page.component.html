@@ -5,7 +5,7 @@
       <li>Project</li>
       <li class="hover-underline-animation">
         <a [href]="info.siteLink" target="_blank"> 
-          Visit live Website
+          {{ info.linkName}}
         </a>
       </li>
     </ul>
@@ -37,7 +37,7 @@
       <thead>
         <tr class="border-b-4 border-primary">
           <th class="py-2 px-4 text-left font-bold text-lg md:text-2xl max-md:text-nowrap">Project Info</th>
-          <th class="py-2 px-4 text-left font-bold text-lg md:text-2xl"></th>
+          <th class="py-2 px-4 text-left font-bold text-lg md:text-2xl">{{info.date}}</th>
         </tr>
       </thead>
       <tbody class="font-semibold text-base md:text-lg">
@@ -57,18 +57,18 @@
           </td>
         </tr>
         <tr class="border-b-4 border-primary">
-          <td class="py-2 px-4">Year</td>
-          <td class="py-2 px-4">{{info.date}}</td>
+          <td class="py-2 px-4">Platforms</td>
+          <td class="py-2 px-4 ">{{info.platforms}}</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="w-full max-md:pb-20 md:w-3/4 ml-4 md:ml-16 flex justify-center mt-10 md:mt-0">
-    <c-carousel [interval]="5000" transition="slide" class="w-full h-full md:w-[95%] md:h-[95%] shadow-lg shadow-gray-500/50">
+    <c-carousel [interval]="5000" transition="slide" class="w-auto h-full md:w-auto md:h-auto shadow-auto shadow-gray-500/50">
       <c-carousel-inner>
         <c-carousel-item *ngFor="let slide of info.imgExplanationUrls">
-          <img [src]="slide" alt="{{slide}}" class="w-full h-auto" loading="lazy" />
+          <img [src]="slide" alt="{{slide}}" class="w-[80%] h-[80%]" loading="lazy" />
         </c-carousel-item>
       </c-carousel-inner>
     </c-carousel>

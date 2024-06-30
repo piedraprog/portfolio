@@ -6,7 +6,7 @@ export interface socialMediaUrls {
 
 export const socials: socialMediaUrls[] = [
     {
-        social: "intagram",
+        social: "instagram",
         url: "https://www.instagram.com/piedraprog"
     },
     {
