@@ -1,4 +1,4 @@
-<section class="flex-col text-primary">
+<!-- <section class="flex-col text-primary">
   <div class="nav flex justify-end mr-14 pt-5">
     <app-navbar></app-navbar>
   </div>
@@ -29,7 +29,7 @@
       </div>
       <div class="absolute h-[72vh] w-[72vh] z-20 top-0 left-20">
         <img src="assets/imgs/pp2.png" alt="Imagen Circular" class="w-full h-full rounded-full object-cover grayscale">
-        <!-- <div class="absolute inset-0 rounded-full bg-purple-50 opacity-50"></div> -->
+        <div class="absolute inset-0 rounded-full bg-purple-50 opacity-50"></div>
       </div>
 
     </div>
@@ -49,6 +49,82 @@
           <td class="py-4 px-6 uppercase">{{ job.company }}</td>
           <td class="py-4 px-6">{{ job.time }}</td>
 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section> -->
+<section class="flex flex-col text-primary">
+
+  <app-navbar></app-navbar>
+
+  <div class="flex h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh]">
+    <h1 class="font-extrabold text-[10vh] sm:text-[14vh] md:text-[18vh] lg:text-[24vh] self-end ml-2 sm:ml-4 uppercase">{{pageName}}</h1>
+  </div>
+</section>
+
+<app-scrolling-text [text]="pageName"></app-scrolling-text>
+
+<section class="pt-10 sm:pt-14 md:pt-20 bg-background text-primary pb-20 sm:pb-40 md:pb-60 lg:pb-96">
+  <div class="p-4 sm:p-6 md:p-10 relative w-full">
+    <p class="absolute font-semibold text-xl sm:text-2xl capitalize top-0 right-4 sm:right-10 md:right-20">last update // 2024</p>
+    <br class="md:hidden">
+  </div>
+  <article class="w-full flex flex-col md:flex-row h-auto md:h-[100vh] mb-20 md:mb-52">
+    <p class="
+      text-left mx-4 
+      font-medium 
+      w-1/2
+      text-xl
+      max-md:w-[90%]
+      sm:mx-10 sm:text-2xl 
+      md:ml-20 md:text-3xl 
+      ">
+      {{ aboutme}}
+      <br><br>
+      {{ aboutme2}}
+    </p>
+
+    <div class="relative md:w-1/4 xs:w-full flex items-center justify-center md:ml-44 mt-10 md:mt-0 xxs:h-[35vh] ">
+      <div class="
+        absolute 
+        h-[40vh] w-[40vh]
+        bg-primary rounded-full z-10 top-0
+        left-1/2 transform
+        -translate-x-1/2
+        sm:h-[50vh] sm:w-[50vh]
+        md:h-[60vh] md:top-0 md:left-20 md:w-[60vh]
+        lg:h-[72vh] lg:w-[72vh]">
+      </div>
+      <div class="
+        absolute 
+        h-[40vh] w-[40vh]
+        z-20 top-0 left-1/2 transform -translate-x-1/2
+        sm:h-[50vh] sm:w-[50vh]
+        md:h-[60vh] md:w-[60vh] md:top-0 md:left-20
+        lg:h-[72vh] lg:w-[72vh]"
+      >
+
+        <img src="assets/imgs/pp2.png" alt="Imagen Circular" class="w-full h-full rounded-full object-cover grayscale">
+      </div>
+    </div>
+  </article>
+
+
+  <div class="flex justify-center mt-10 ">
+    <table class="w-full sm:w-4/5 overflow-hidden">
+      <thead class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-left font-semibold uppercase mb-4">
+        <tr>
+          <th *ngFor="let colum of tableColums" class="py-3 px-4 sm:px-6">{{colum}}</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y-2 sm:divide-y-4 divide-primary divide-solid">
+        <tr *ngFor="let job of tableInfo"
+          class="text-sm sm:text-lg md:text-xl font-medium text-primary hover:bg-primary hover:text-background transition-colors ease-in-out duration-500 cursor-pointer"
+          (click)="goTo()">
+          <td class="py-2 sm:py-4 px-4 sm:px-6">{{ job.job }}</td>
+          <td class="py-2 sm:py-4 px-4 sm:px-6 uppercase">{{ job.company }}</td>
+          <td class="py-2 sm:py-4 px-4 sm:px-6">{{ job.time }}</td>
         </tr>
       </tbody>
     </table>
