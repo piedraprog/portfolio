@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
     >
         <ul class="
           pr-4 md:pr-10
-          flex flex-wrap justify-center space-x-2 md:space-x-4 text-[3vh] md:text-[4vh]
+          flex flex-wrap justify-center space-x-2 md:space-x-4 text-[2.5vh] md:text-[4vh]
           font-semibold text-primary
         ">
           <li *ngFor="let item of items; index as i">

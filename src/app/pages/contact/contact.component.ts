@@ -6,19 +6,26 @@ import { Clipboard } from "@angular/cdk/clipboard";
 @Component({
   selector: 'app-contact',
   template: `
-    <section class="flex flex-col text-primary">
-      <app-navbar class="nav flex justify-end mr-4 pt-5 xxs:mr-14 xxs:pt-0"></app-navbar>
+    <section class="flex-col text-primary">
+      <app-navbar></app-navbar>
 
-      <div class="h-[70vh] flex items-center justify-center xxs:h-[50vh]">
+      <div class="md:h-[90vh] xxs:h-[50vh] flex items-center justify-center">
         <div class="text-center">
-          <p class="font-semibold text-lg uppercase text-center xxs:text-sm">
+          <p class="
+            font-semibold 
+            min-md:text-2xl 
+            text-lg 
+            uppercase text-center">
             send me a message
           </p>
           <button (click)="showSuccess()">
             <h1 class="
-              font-bold text-[10vh] uppercase text-center 
+              font-bold 
+              text-[18vh]
+              uppercase 
+              text-center 
               hover:text-accent 
-              xxs:text-4xl"
+              max-md:text-4xl"
             >
               {{email}}
             </h1>
@@ -27,19 +34,18 @@ import { Clipboard } from "@angular/cdk/clipboard";
       </div>
     </section>
 
-    <section class="bg-background text-primary pt-16 xxs:pt-0">
-      <div class="flex items-center justify-center">
+    <section class="bg-background text-primary pt-32 max-xs:pt-0">
+      <div class="flex items-center justify-center px-4">
         <div class="text-center">
-          <p class="font-semibold text-lg uppercase text-center xxs:text-xl">
+          <p class="font-semibold text-lg md:text-xl uppercase">
             or reach me on
           </p>
-          <ul
-            *ngFor="let social of socialMediaUrls"
-            class="font-bold text-[10vh] uppercase text-center leading-tight hover:text-accent xxs:text-4xl"
-          >
-            <a [href]="social.url" target="_blank" rel="noopener noreferrer">
-              {{social.social}}
-            </a>
+          <ul *ngFor="let social of socialMediaUrls" class="font-bold text-5xl md:text-[20vh] uppercase leading-tight hover:text-accent">
+            <li>
+              <a [href]="social.url" target="_blank" rel="noopener noreferrer">
+                {{social.social}}
+              </a>
+            </li>
           </ul>
         </div>
       </div>
