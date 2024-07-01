@@ -7,7 +7,7 @@ export interface socialMediaUrls {
 export const socials: socialMediaUrls[] = [
     {
         social: "instagram",
-        url: "https://www.instagram.com/drapie_dev"
+        url: "https://www.instagram.com/drapie.dev"
     },
     {
         social: "tiktok",
