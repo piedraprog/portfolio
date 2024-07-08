@@ -34,7 +34,8 @@ export class HomepageComponent {
   ) { 
     this.getScreenSize()
 
-    this.callToAction = this.screenWidth > 600 ? `I've to tell you where's the nav?` : 'Need help finding the navigation? Click here!';
+    // this.callToAction = this.screenWidth > 600 ? `I've to tell you where's the nav?` : 'Need help finding the navigation? Click here!';
+    this.callToAction = 'Need help finding the navigation? Click here!';
     this.showIconService.iconClass$.subscribe(className => {
       this.iconClass = className;
     });
