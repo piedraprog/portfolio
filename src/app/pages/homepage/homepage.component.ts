@@ -7,7 +7,6 @@ import { ShowIconService } from '../../services/show-arrow.service';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.scss'
 })
 export class HomepageComponent {
   lastName: string[] = ['piedra', 'drapie']

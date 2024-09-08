@@ -9,19 +9,21 @@ import { Clipboard } from "@angular/cdk/clipboard";
     <section class="flex-col text-primary">
       <app-navbar></app-navbar>
 
-      <div class="md:h-[90vh] xxs:h-[50vh] flex items-center justify-center">
+      <div class="md:h-[110vh] xxs:h-[50vh] flex items-center justify-center">
         <div class="text-center">
           <p class="
             font-semibold 
             min-md:text-2xl 
             text-lg 
-            uppercase text-center">
+            uppercase text-center
+            3xl:text-5xl
+            ">
             send me a message
           </p>
           <button (click)="showSuccess()">
             <h1 class="
               font-bold 
-              text-[18vh]
+              text-[15vh]
               uppercase 
               text-center 
               hover:text-accent 
@@ -37,10 +39,10 @@ import { Clipboard } from "@angular/cdk/clipboard";
     <section class="bg-background text-primary pt-32 max-xs:pt-0">
       <div class="flex items-center justify-center px-4">
         <div class="text-center">
-          <p class="font-semibold text-lg md:text-xl uppercase">
+          <p class="font-semibold text-lg md:text-xl uppercase 3xl:text-4xl">
             or reach me on
           </p>
-          <ul *ngFor="let social of socialMediaUrls" class="font-bold text-5xl md:text-[20vh] uppercase leading-tight hover:text-accent">
+          <ul *ngFor="let social of socialMediaUrls" class="font-bold text-5xl md:text-[18vh] uppercase leading-tight hover:text-accent">
             <li>
               <a [href]="social.url" target="_blank" rel="noopener noreferrer">
                 {{social.social}}

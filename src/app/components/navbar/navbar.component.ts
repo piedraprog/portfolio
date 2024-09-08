@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
         fixed top-0 right-0 md:p-4 xxs:pt-10 xxs:pb-2  z-50 w-full
         bg-background 
         flex 
-        justify-center md:justify-end"
+        justify-center md:justify-end
+        3xl:pt-20 3xl:pr-24"
     >
         <ul class="
           pr-4 md:pr-10
@@ -18,7 +19,7 @@ import { Router } from '@angular/router';
           <li *ngFor="let item of items; index as i">
             <button 
               (click)="goTo(item)" 
-              [ngClass]="currentRoute == item ? 'underline decoration-4 underline-offset-4' : 'hover-underline-animation'"
+              [ngClass]="currentRoute == item ? 'underline decoration-4 underline-offset-[1vh]  3xl:decoration-[0.5vh] 3xl:border-r-2' : 'hover-underline-animation'"
             >
               {{item}}
             </button>

@@ -1,76 +1,92 @@
-<header class="text-primary" *ngIf="(pageDetailData$ | async) as info">
-  <nav class="h-20 flex w-full md:w-[90vw] items-center px-4 md:px-0">
-    
-    <ul class="flex flex-wrap justify-between w-full md:w-[50vw] uppercase font-bold ml-4 md:ml-16 text-lg md:text-2xl max-md:mt-20">
+<div class="h-[100vh]">
+
+  <nav class="h-20 flex w-full md:w-[90vw] items-center px-4 md:px-0 text-primary"
+    *ngIf="(pageDetailData$ | async) as info">
+    <ul class="
+          flex flex-wrap justify-between w-full md:w-[50vw] 
+          uppercase font-bold ml-4 md:ml-16 text-lg 
+          md:text-3xl max-md:mt-20 
+          3xl:text-3xl 3xl:mt-20
+          4xl:text-6xl
+        ">
       <li>Project</li>
       <li class="hover-underline-animation">
-        <a [href]="info.siteLink" target="_blank"> 
+        <a [href]="info.siteLink" target="_blank">
           {{ info.linkName}}
         </a>
       </li>
     </ul>
     <button (click)="goTo('portfolio')" class="
-          absolute 
-          top-5
-          right-4 md:right-16
-          rounded-full 
-          w-8 h-8 md:w-10 md:h-10
-          flex 
-          items-center 
-          justify-center 
-          font-semibold
-          text-lg md:text-[4vh]
-          hover:text-accent
-        ">
+            absolute 
+            top-5
+            right-4 md:right-16
+            rounded-full 
+            w-8 h-8 md:w-10 md:h-10
+            flex 
+            items-center 
+            justify-center 
+            font-semibold
+            text-lg md:text-[4vh]
+            hover:text-accent
+            3xl:mt-12
+          ">
       X
     </button>
   </nav>
-</header>
 
-<section id="project-explanation" class="flex flex-wrap md:flex-nowrap items-center h-screen md:h-3/4 text-primary mt-10 px-4 md:px-0 bg-background" *ngIf="pageDetailData$ | async as info">
-  <div class="w-full md:w-1/3 ml-4 md:ml-16 flex flex-col">
-    <h1 class="text-2xl md:text-4xl font-bold uppercase pb-5">{{ info.title }}</h1>
-    <p class="text-base md:text-lg font-medium text-left">
-      {{ info.description }}
-    </p>
-    <table class="min-w-full mt-10">
-      <thead>
-        <tr class="border-b-4 border-primary">
-          <th class="py-2 px-4 text-left font-bold text-lg md:text-2xl max-md:text-nowrap">Project Info</th>
-          <th class="py-2 px-4 text-left font-bold text-lg md:text-2xl">{{info.date}}</th>
-        </tr>
-      </thead>
-      <tbody class="font-semibold text-base md:text-lg">
-        <tr class="border-b-4 border-primary">
-          <td class="py-2 px-4">Role</td>
-          <td class="py-2 px-4 font-medium flex flex-wrap gap-1">
-            {{ info.role }}
-          </td>
-        </tr>
-        <tr class="border-b-4 border-primary">
-          <td class="py-2 px-4">Stack</td>
-          <td class="py-2 px-4 font-medium text-sm flex flex-wrap gap-1">
-            <span *ngFor="let stack of info.stack; index as i">
-              {{stack}}
-              <span *ngIf="i !== info.stack.length -1">,</span>
-            </span>
-          </td>
-        </tr>
-        <tr class="border-b-4 border-primary">
-          <td class="py-2 px-4">Platforms</td>
-          <td class="py-2 px-4 ">{{info.platforms}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="w-full max-md:pb-20 md:w-3/4 ml-4 md:ml-16 flex justify-center mt-10 md:mt-0">
-    <c-carousel [interval]="5000" transition="slide" class="w-auto h-full md:w-auto md:h-auto shadow-auto shadow-gray-500/50">
-      <c-carousel-inner>
-        <c-carousel-item *ngFor="let slide of info.imgExplanationUrls">
-          <img [src]="slide" alt="{{slide}}" class="w-[80%] h-[80%]" loading="lazy" />
-        </c-carousel-item>
-      </c-carousel-inner>
-    </c-carousel>
-  </div>
-</section>
+  <section id="project-explanation"
+    class="flex flex-wrap md:flex-nowrap items-center text-primary px-4 md:px-0 bg-background h-[90vh]"
+    *ngIf="pageDetailData$ | async as info"
+  >
+    <div class="w-full md:w-1/3 ml-4 md:ml-16 flex flex-col">
+      <h1 class="text-2xl md:text-4xl 3xl:text-4xl font-bold uppercase pb-5 4xl:text-8xl">{{ info.title }}</h1>
+      <p class="text-base md:text-lg font-medium text-left 3xl:text-2xl 4xl:text-5xl 4xl:my-10">
+        {{ info.description }}
+      </p>
+      <table class="min-w-full mt-10">
+        <thead>
+          <tr class="border-b-4 border-primary ">
+            <th class="py-2 px-4 text-left font-bold text-lg 3xl:text-3xl 4xl:text-6xl md:text-2xl max-md:text-nowrap">Project Info
+            </th>
+            <th class="py-2 px-4 text-left font-bold text-lg 3xl:text-4xl md:text-2xl 4xl:text-6xl ">{{info.date}}</th>
+          </tr>
+        </thead>
+        <tbody class="font-semibold text-base md:text-lg 3xl:text-3xl 4xl:text-6xl">
+          <tr class="border-b-4 border-primary">
+            <td class="py-2 px-4">Role</td>
+            <td class="py-2 px-4 font-medium flex flex-wrap gap-1">
+              {{ info.role }}
+            </td>
+          </tr>
+          <tr class="border-b-4 border-primary ">
+            <td class="py-2 px-4">Stack</td>
+            <td class="py-2 px-4 font-medium text-sm flex flex-wrap gap-1 3xl:text-3xl 4xl:text-6xl">
+              <span *ngFor="let stack of info.stack; index as i">
+                {{stack}}
+                <span *ngIf="i !== info.stack.length -1">,</span>
+              </span>
+            </td>
+          </tr>
+          <tr class="border-b-4 border-primary ">
+            <td class="py-2 px-4">Platforms</td>
+            <td class="py-2 px-4 font-medium">{{info.platforms}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="w-1/2 max-md:pb-20 md:w-3/4 ml-2 md:ml-8 flex justify-center items-center md:mt-0">
+      <!-- TODO: add video in the future -->
+      <iframe [width]="videoWidth" [height]="videoHeight"
+        src="https://www.youtube.com/embed/aedly5JCj54?si=j1wWwG6bIFYZX5lB" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <!-- <c-carousel [interval]="5000" transition="slide" class="w-auto h-full md:w-auto md:h-auto shadow-auto shadow-gray-500/50">
+        <c-carousel-inner>
+          <c-carousel-item *ngFor="let slide of info.imgExplanationUrls">
+            <img [src]="slide" alt="{{slide}}" class="w-[80%] h-[80%]" loading="lazy" />
+          </c-carousel-item>
+        </c-carousel-inner>
+      </c-carousel> -->
+    </div>
+  </section>
+</div>

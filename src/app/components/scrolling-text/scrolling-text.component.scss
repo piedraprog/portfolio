@@ -2,6 +2,10 @@
   font-size: clamp(5rem, 20vw, 10rem);
   text-transform: uppercase;
   padding: 0 0.25em;
+
+  @media (min-width: 1920px) { // Pantallas extra grandes
+    font-size: clamp(40rem, 100vw, 10rem);
+  }
 }
 
 .right {

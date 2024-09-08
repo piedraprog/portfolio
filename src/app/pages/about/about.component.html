@@ -2,8 +2,9 @@
 
   <app-navbar></app-navbar>
 
-  <div class="flex h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh]">
-    <h1 class="font-extrabold text-[10vh] sm:text-[14vh] md:text-[18vh] lg:text-[24vh] self-end ml-2 sm:ml-4 uppercase">{{pageName}}</h1>
+  <div class="flex h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[100vh] ">
+    <h1 class="font-extrabold text-[10vh] sm:text-[14vh] md:text-[18vh] lg:text-[24vh] self-end ml-2 sm:ml-4 uppercase">
+      {{pageName}}</h1>
   </div>
 </section>
 
@@ -11,10 +12,11 @@
 
 <section class="pt-10 sm:pt-14 md:pt-20 bg-background text-primary pb-20 sm:pb-40 md:pb-60 lg:pb-96">
   <div class="p-4 sm:p-6 md:p-10 relative w-full">
-    <p class="absolute font-semibold text-xl sm:text-2xl capitalize top-0 right-4 sm:right-10 md:right-20">last update // 2024</p>
+    <p class="absolute font-semibold text-xl 2xl:text-4xl sm:text-2xl capitalize top-0 right-4 sm:right-10 md:right-20">
+      last update // 2024</p>
     <br class="md:hidden">
   </div>
-  <article class="w-full flex flex-col md:flex-row h-auto md:h-[100vh] mb-20 md:mb-52">
+  <article class="w-full flex flex-col md:flex-row min-h-full mb-20 md:mb-52">
     <p class="
       text-left mx-4 
       font-medium 
@@ -23,6 +25,8 @@
       max-md:w-[90%]
       sm:mx-10 sm:text-2xl 
       md:ml-20 md:text-3xl 
+      2xl:text-5xl 3xl:ml-40
+      4xl:text-7xl 
       ">
       {{ aboutme}}
       <br><br>
@@ -37,8 +41,10 @@
         left-1/2 transform
         -translate-x-1/2
         sm:h-[50vh] sm:w-[50vh]
-        md:h-[60vh] md:top-0 md:left-20 md:w-[60vh]
-        lg:h-[72vh] lg:w-[72vh]">
+        md:h-[60vh] md:w-[60vh] md:top-0 md:left-20 
+        2xl:left-60 2xl:top-32 
+        4xl:left-[33vh] 4xl:top-[1vh]
+        ">
       </div>
       <div class="
         absolute 
@@ -46,8 +52,9 @@
         z-20 top-0 left-1/2 transform -translate-x-1/2
         sm:h-[50vh] sm:w-[50vh]
         md:h-[60vh] md:w-[60vh] md:top-0 md:left-20
-        lg:h-[72vh] lg:w-[72vh]"
-      >
+        2xl:left-60 2xl:top-32 
+        4xl:left-[33vh] 4xl:top-[1vh]
+        ">
 
         <img src="assets/imgs/pp2.png" alt="Imagen Circular" class="w-full h-full rounded-full object-cover grayscale">
       </div>
@@ -64,7 +71,7 @@
       </thead>
       <tbody class="divide-y-2 sm:divide-y-4 divide-primary divide-solid">
         <tr *ngFor="let job of tableInfo"
-          class="text-sm sm:text-lg md:text-xl font-medium text-primary hover:bg-primary hover:text-background transition-colors ease-in-out duration-500 cursor-pointer"
+          class="text-sm sm:text-lg md:text-xl 2xl:text-3xl 4xl:text-6xl font-medium text-primary hover:bg-primary hover:text-background transition-colors ease-in-out duration-500 cursor-pointer"
           (click)="goTo()">
           <td class="py-2 sm:py-4 px-4 sm:px-6">{{ job.job }}</td>
           <td class="py-2 sm:py-4 px-4 sm:px-6 uppercase">{{ job.company }}</td>

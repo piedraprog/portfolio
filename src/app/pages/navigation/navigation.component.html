@@ -1,5 +1,5 @@
 <div class="flex items-center h-full">
-  <div class="ml-10 w-3 md:h-[46vh] bg-primary"></div>
+  <div class="ml-10 w-3 md:h-[46vh] bg-primary 3xl:h-[40vh] 3xl:w-3"></div>
   <!-- <ul class="font-extrabold text-[22vh] leading-10 text-primary flex-col ">
     <li 
       class="ml-3 hover-sideline-animation" 
@@ -52,11 +52,14 @@
     font-extrabold text-[10vh] 
     xs:text-[10vh] md:text-[24vh] 
     leading-10 text-primary flex-col mt-[-40px] 
-    xs:mt-[-60px] sm:mt-[-80px]">
-    
+    xs:mt-[-60px] sm:mt-[-80px] 
+    3xl:leading-[15vh]
+    3xl:ml-[70px]"
+  >
+    <!-- TODO: ADD hover colors -->
     <li
       *ngFor="let item of menuItems; let i = index"
-      class="ml-1 max-xs:ml-[-20px] hover-sideline-animation"
+      class="ml-1 max-xs:ml-[-20px] hover:text-hover-color"
       [style.--start-position]="startPosition"
       [ngClass]="
         (isScreenHeightValid$ | async) ? 
@@ -69,7 +72,6 @@
       </button>
     </li>
   </ul>
-  
 
   <div class="nav h-screen w-1/2">
     <button (click)="goTo('home')" class="
@@ -85,6 +87,9 @@
       text-[6vh]
       text-primary
       hover:text-accent
+
+      3xl:top-80
+      3xl:right-96
     ">
       X
     </button>
