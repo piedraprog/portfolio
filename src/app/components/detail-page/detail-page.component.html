@@ -76,17 +76,17 @@
     </div>
     <div class="w-1/2 max-md:pb-20 md:w-3/4 ml-2 md:ml-8 flex justify-center items-center md:mt-0">
       <!-- TODO: add video in the future -->
-      <iframe [width]="videoWidth" [height]="videoHeight"
+      <!-- <iframe [width]="videoWidth" [height]="videoHeight"
         src="https://www.youtube.com/embed/aedly5JCj54?si=j1wWwG6bIFYZX5lB" title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <!-- <c-carousel [interval]="5000" transition="slide" class="w-auto h-full md:w-auto md:h-auto shadow-auto shadow-gray-500/50">
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+      <c-carousel [interval]="5000" transition="slide" class="w-auto h-full md:w-auto md:h-auto shadow-auto shadow-gray-500/50">
         <c-carousel-inner>
           <c-carousel-item *ngFor="let slide of info.imgExplanationUrls">
             <img [src]="slide" alt="{{slide}}" class="w-[80%] h-[80%]" loading="lazy" />
           </c-carousel-item>
         </c-carousel-inner>
-      </c-carousel> -->
+      </c-carousel>
     </div>
   </section>
 </div>
