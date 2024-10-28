@@ -41,6 +41,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     AngularMaterialModule,
     ToastrModule.forRoot(),
+    
   ],
   providers: [
     provideAnimationsAsync()

@@ -35,11 +35,11 @@ module.exports = {
         'background': '#F8F4E1',
         'accent': '#1E1E1E',
       },
-      blueVeige: {
-        'primary': '#0C1844',
-        'background': '#FFF5E1',
-        'brand': '#000000',
-      },
+      // blueVeige: {
+      //   'primary': '#0C1844',
+      //   'background': '#FFF5E1',
+      //   'brand': '#000000',
+      // },
       blueRedWine:{
         'primary': '#00224D',
         'background': '#A0153E',
