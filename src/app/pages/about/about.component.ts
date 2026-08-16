@@ -15,6 +15,21 @@ export class AboutComponent {
 
   tableInfo: AboutExperienceRow[] = [
     {
+      job: "Product Engineer / Full-stack TypeScript Engineer",
+      company: "Independent / Drapie",
+      time: "mar. 2025 - present"
+    },
+    {
+      job: "Frontend Developer",
+      company: "Well Made Software",
+      time: "oct. 2024 - mar. 2025"
+    },
+    {
+      job: "Frontend Developer",
+      company: "D4T",
+      time: "jul. 2024 - sep. 2024"
+    },
+    {
       job: "Frontend Developer",
       company: "Tikket",
       time: "feb. 2023 - feb. 2024"
@@ -36,9 +51,9 @@ export class AboutComponent {
     },
   ]
 
-  aboutme: string = "I have 4 years of experience as a Front-end Developer. I have worked with technologies such as Angular and Node.js to create user-centric software solutions. My core competencies include platform architecture design, efficient coding and optimizing applications for high volume of requests."
+  aboutme: string = "I am a frontend-focused Product Engineer specialized in Angular and TypeScript, with practical full-stack capability across business applications, SaaS products, and internal systems."
 
-  aboutme2: string = "  In my recent role at Tikket, I have worked closely with Product Owners and development teams, contributing to the design and development of innovative functionality and continuously improving the user experience. I value a culture of teamwork, effective communication and the constant pursuit of excellence. I am committed to bringing diverse perspectives and enriching experiences to the team, always with a focus on collective success and the achievement of shared goals."
+  aboutme2: string = "My strongest work happens where frontend depth meets product ownership: understanding existing systems, translating business workflows into software, working across APIs and data when needed, and taking product slices from requirements through deployment and real-user iteration."
 
   goTo() {
     window.open(this.linkdnUrl, "_blank");
