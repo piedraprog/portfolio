@@ -156,7 +156,10 @@ export class HomepageComponent implements AfterViewInit, OnDestroy {
     this.isThemeCycling = true;
 
     const container = this.barsContainer.nativeElement;
-    const copy = this.homeCopy.nativeElement;
+    const copyLines = Array.from(
+      this.homeCopy.nativeElement.querySelectorAll<HTMLElement>('.home-copy-line'),
+    );
+    gsap.set(copyLines, { autoAlpha: 1, y: 0 });
     container.replaceChildren();
 
     const barCount = Math.max(2, Math.floor(window.innerWidth / this.barHeight));
@@ -179,10 +182,11 @@ export class HomepageComponent implements AfterViewInit, OnDestroy {
       },
     });
 
-    this.themeWipe.to(copy, {
+    this.themeWipe.to(copyLines, {
       autoAlpha: 0,
-      y: -28,
-      duration: 0.35,
+      y: -24,
+      duration: 0.4,
+      stagger: 0.08,
       ease: 'power3.in',
     });
     this.themeWipe.fromTo(
@@ -193,12 +197,17 @@ export class HomepageComponent implements AfterViewInit, OnDestroy {
     this.themeWipe.add(() => {
       this.portfolioTheme.apply(nextTheme);
     });
-    this.themeWipe.to(copy, {
-      autoAlpha: 1,
-      y: 0,
-      duration: 0.45,
-      ease: 'power3.out',
-    });
+    this.themeWipe.fromTo(
+      copyLines,
+      { autoAlpha: 0, y: 24 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'power3.out',
+      },
+    );
   }
 
   private prefersReducedMotion(): boolean {
