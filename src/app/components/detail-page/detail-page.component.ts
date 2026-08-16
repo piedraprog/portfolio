@@ -1,12 +1,14 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { projects } from '../../interfaces/projects.interfaces';
 
 @Component({
-  selector: 'app-detail-page',
-  templateUrl: './detail-page.component.html',
-  styleUrl: './detail-page.component.scss'
+    selector: 'app-detail-page',
+    templateUrl: './detail-page.component.html',
+    styleUrl: './detail-page.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class DetailPageComponent {
 

@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-scrolling-text',
-  templateUrl: './scrolling-text.component.html',
-  styleUrl: './scrolling-text.component.scss',
-  
+    selector: 'app-scrolling-text',
+    templateUrl: './scrolling-text.component.html',
+    styleUrl: './scrolling-text.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ScrollingTextComponent {
 

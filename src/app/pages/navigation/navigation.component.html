@@ -1,52 +1,52 @@
 <div class="flex items-center h-full">
   <div class="ml-10 w-3 md:h-[46vh] bg-primary 3xl:h-[40vh] 3xl:w-3"></div>
   <!-- <ul class="font-extrabold text-[22vh] leading-10 text-primary flex-col ">
-    <li 
-      class="ml-3 hover-sideline-animation" 
-      [style.--start-position]="startPosition"
-      (mouseenter)="setStartPosition($event)"
+  <li
+    class="ml-3 hover-sideline-animation"
+    [style.--start-position]="startPosition"
+    (mouseenter)="setStartPosition($event)"
     >
-      <button (click)="goTo('about')">
-        About
-      </button>
-    </li>
-    <li 
-      class="hover-sideline-animation" 
-      [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
-      [style.--start-position]="startPosition"
+    <button (click)="goTo('about')">
+      About
+    </button>
+  </li>
+  <li
+    class="hover-sideline-animation"
+    [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'"
+    [style.--start-position]="startPosition"
     >
-      <button (click)="goTo('portfolio')" (mouseenter)="setStartPosition($event)">
-        Portfolio
-      </button>
-    </li>
-    <li
-      class="hover-sideline-animation" 
-      [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
-      [style.--start-position]="startPosition"
+    <button (click)="goTo('portfolio')" (mouseenter)="setStartPosition($event)">
+      Portfolio
+    </button>
+  </li>
+  <li
+    class="hover-sideline-animation"
+    [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'"
+    [style.--start-position]="startPosition"
     >
-      <button (click)="goTo('resources')" (mouseenter)="setStartPosition($event)">
-        Resources
-      </button>
-    </li>
-    <li 
-      [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
-      [style.--start-position]="startPosition"
+    <button (click)="goTo('resources')" (mouseenter)="setStartPosition($event)">
+      Resources
+    </button>
+  </li>
+  <li
+    [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'"
+    [style.--start-position]="startPosition"
     >
-      <button (click)="goTo('Resources')">
-        Blog
-      </button>
-      
-    </li>
-    <li 
-      class="hover-sideline-animation" 
-      [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'" 
-      [style.--start-position]="startPosition"
+    <button (click)="goTo('Resources')">
+      Blog
+    </button>
+
+  </li>
+  <li
+    class="hover-sideline-animation"
+    [ngClass]="( isScreenHeightValid$|async ) ? 'pt-[8rem]' : 'pt-[6rem]'"
+    [style.--start-position]="startPosition"
     >
-      <button (click)="goTo('contact')"  (mouseenter)="setStartPosition($event)">
-        Contact
-      </button>
-    </li>
-  </ul> -->
+    <button (click)="goTo('contact')"  (mouseenter)="setStartPosition($event)">
+      Contact
+    </button>
+  </li>
+</ul> -->
 
   <ul class="
     font-extrabold text-[10vh] 
@@ -56,9 +56,9 @@
     3xl:leading-[15vh]
     3xl:ml-[70px]"
   >
-    <!-- TODO: ADD hover colors -->
+  <!-- TODO: ADD hover colors -->
+  @for (item of menuItems; track item; let i = $index) {
     <li
-      *ngFor="let item of menuItems; let i = index"
       class="ml-1 max-xs:ml-[-20px] hover:text-hover-color"
       [style.--start-position]="startPosition"
       [ngClass]="
@@ -66,14 +66,15 @@
         (i === 0 ? '' : 'pt-[6rem] xs:pt-[7rem] sm:pt-[8rem] md:pt-[9rem]') : 
         'pt-[4rem] xs:pt-[5rem] sm:pt-[6rem] md:pt-[6rem]' "
       (mouseenter)="setStartPosition($event)"
-    >
+      >
       <button (click)="goTo(item.route)">
         {{ item.label }}
       </button>
     </li>
-  </ul>
+  }
+</ul>
 
-  <div class="nav h-screen w-1/2">
+<div class="nav h-screen w-1/2">
     <button (click)="goTo('home')" class="
       absolute 
       top-16 
@@ -91,8 +92,8 @@
       3xl:top-80
       3xl:right-96
     ">
-      X
-    </button>
+    X
+  </button>
 
-  </div>
+</div>
 </div>

@@ -1,12 +1,14 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { map } from 'rxjs';
 import { TypewriterService } from '../../services/typewriter.service';
 import { Router } from '@angular/router';
 import { ShowIconService } from '../../services/show-arrow.service';
 import { gsap } from 'gsap';
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
+    selector: 'app-homepage',
+    templateUrl: './homepage.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class HomepageComponent {
 

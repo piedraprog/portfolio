@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, Subscription, map } from 'rxjs';
 import { ScreenSizeService } from '../../services/screensize.service';
 import { Router } from '@angular/router';
 import { ShowIconService } from '../../services/show-arrow.service';
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html'
+    selector: 'app-navigation',
+    templateUrl: './navigation.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 
 export class NavigationComponent {

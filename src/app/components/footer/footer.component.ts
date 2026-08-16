@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { socialMediaUrls, socials } from '../../interfaces/social.interfaces';
 
 @Component({
-  selector: 'app-footer',
-  template: `
+    selector: 'app-footer',
+    template: `
     <footer class="h-1/3 flex flex-wrap justify-between items-center p-4 sm:p-6 md:p-10 text-[2vh] sm:text-[2.5vh] md:text-[3vh] font-semibold bg-primary text-background">
       <p class="w-full sm:w-auto flex items-center text-left text-wrap mb-4 sm:mb-0">
         Jose Piedra, Developer
@@ -13,7 +13,10 @@ import { socialMediaUrls, socials } from '../../interfaces/social.interfaces';
         &copy; 2024
       </p>
     </footer>
-  `})
+  `,
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
+})
 
 export class FooterComponent {
   socialMediaUrls: socialMediaUrls[] = socials;
