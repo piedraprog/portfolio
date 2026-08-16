@@ -1,0 +1,50 @@
+<section class="flex flex-col text-primary">
+  <app-navbar></app-navbar>
+  <div class="flex h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[100vh]">
+    <h1
+      appSectionHero
+      class="font-extrabold text-[10vh] sm:text-[14vh] md:text-[18vh] lg:text-[24vh] self-end ml-2 sm:ml-4 uppercase"
+    >
+      {{ pageName }}
+    </h1>
+  </div>
+</section>
+
+<section class="bg-background text-primary px-4 sm:px-8 md:px-16 pb-24">
+  <p class="uppercase font-semibold text-sm md:text-lg mb-12 max-w-xl">
+    Notes on product, Angular, and shipping. Two mock pieces to lock the layout.
+  </p>
+
+  <ol class="flex flex-col">
+    @for (article of articles; track article.slug; let i = $index) {
+      <li class="border-t-4 border-primary">
+        <button
+          type="button"
+          class="w-full text-left py-10 md:py-16 cursor-pointer group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+          (click)="openArticle(article.slug)"
+        >
+          <div class="grid gap-6 md:grid-cols-[5rem_minmax(0,1fr)] items-start">
+            <span class="font-semibold text-xl md:text-3xl">{{ articleIndex(i) }}</span>
+            <div>
+              <h2
+                class="uppercase font-extrabold text-3xl sm:text-5xl md:text-6xl leading-none mb-4 group-hover:text-accent transition-colors duration-200"
+              >
+                {{ article.title }}
+              </h2>
+              <p class="uppercase font-semibold text-sm md:text-base mb-4">
+                {{ article.publishedAt }} · {{ article.readMinutes }} min ·
+                {{ article.tags.join(' / ') }}
+              </p>
+              <p class="max-w-2xl text-base md:text-xl font-medium leading-relaxed">
+                {{ article.excerpt }}
+              </p>
+            </div>
+          </div>
+        </button>
+      </li>
+    }
+  </ol>
+  <div class="border-t-4 border-primary"></div>
+</section>
+
+<app-footer></app-footer>

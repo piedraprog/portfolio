@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,18 +9,17 @@ import { NavigationComponent } from './pages/navigation/navigation.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { TableComponent } from './components/table/table.component';
 import { DetailPageComponent } from './components/detail-page/detail-page.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { ScrollingTextComponent } from './components/scrolling-text/scrolling-text.component';
 import { ProjectHeroComponent } from './components/project-hero/project-hero.component';
-import { SocialsNavComponent } from './components/socials-nav/socials-nav.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AngularMaterialModule } from './material-module.module';
 
 import { ToastrModule } from 'ngx-toastr';
-import { SectionHeroDirective } from './directives/section-hero.directive';
+import { SharedChromeModule } from './shared-chrome.module';
+import { BlogComponent } from './pages/blog/blog.component';
+import { BlogArticleComponent } from './pages/blog-article/blog-article.component';
 
 @NgModule({
   declarations: [
@@ -29,17 +29,17 @@ import { SectionHeroDirective } from './directives/section-hero.directive';
     AboutComponent,
     ProjectsComponent,
     ContactComponent,
-    NavbarComponent,
     TableComponent,
     DetailPageComponent,
-    FooterComponent,
     ScrollingTextComponent,
     ProjectHeroComponent,
-    SocialsNavComponent,
-    SectionHeroDirective,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    SharedChromeModule,
+    BlogComponent,
+    BlogArticleComponent,
     AppRoutingModule,
     AngularMaterialModule,
     ToastrModule.forRoot(),

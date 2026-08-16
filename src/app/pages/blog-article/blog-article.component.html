@@ -1,0 +1,51 @@
+@if (article) {
+  <article class="min-h-screen bg-background text-primary">
+    <app-navbar></app-navbar>
+
+    <header class="px-4 sm:px-8 md:px-16 pt-32 md:pt-40 pb-12 md:pb-20">
+      <button
+        type="button"
+        class="uppercase font-semibold text-sm md:text-lg mb-10 cursor-pointer hover-underline-animation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+        (click)="goToBlog()"
+      >
+        Back to blog
+      </button>
+      <p class="uppercase font-semibold text-sm md:text-lg mb-6">
+        {{ article.tags.join(' / ') }}
+      </p>
+      <h1
+        appSectionHero
+        class="uppercase font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-none max-w-5xl"
+      >
+        {{ article.title }}
+      </h1>
+      <p class="uppercase font-semibold text-sm md:text-base mt-8">
+        {{ article.publishedAt }} · {{ article.readMinutes }} min read
+      </p>
+    </header>
+
+    <div class="px-4 sm:px-8 md:px-16 pb-28">
+      <div class="max-w-3xl border-t-4 border-primary pt-12 flex flex-col gap-8">
+        @for (paragraph of article.body; track paragraph) {
+          <p class="text-lg md:text-2xl font-medium leading-relaxed">
+            {{ paragraph }}
+          </p>
+        }
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </article>
+} @else {
+  <section class="min-h-screen bg-background text-primary px-8 pt-40">
+    <app-navbar></app-navbar>
+    <p class="uppercase font-semibold">Article not found.</p>
+    <button
+      type="button"
+      class="mt-6 uppercase font-bold cursor-pointer hover-underline-animation"
+      (click)="goToBlog()"
+    >
+      Back to blog
+    </button>
+  </section>
+}

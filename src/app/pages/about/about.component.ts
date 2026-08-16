@@ -13,8 +13,6 @@ export class AboutComponent {
 
   linkdnUrl: string = "https://www.linkedin.com/in/drapie/"
 
-  tableColums: Array<keyof AboutExperienceRow> = ["job","company","time"]
-  
   tableInfo: AboutExperienceRow[] = [
     {
       job: "Frontend Developer",

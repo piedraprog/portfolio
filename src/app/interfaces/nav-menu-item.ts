@@ -7,7 +7,7 @@ export interface NavMenuItem {
 export const NAV_MENU_ITEMS: NavMenuItem[] = [
   { label: 'About', route: 'about', available: true },
   { label: 'Portfolio', route: 'portfolio', available: true },
-  { label: 'Blog', route: 'blog', available: false },
+  { label: 'Blog', route: 'blog', available: true },
   { label: 'Contact', route: 'contact', available: true },
 ];
 

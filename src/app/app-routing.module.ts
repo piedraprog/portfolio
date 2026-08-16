@@ -8,6 +8,9 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { DetailPageComponent } from './components/detail-page/detail-page.component';
 import { projectDetailGuard } from './guards/project-detail.guard';
 import { projectDetailResolver } from './resolvers/project-detail.resolver';
+import { BlogComponent } from './pages/blog/blog.component';
+import { BlogArticleComponent } from './pages/blog-article/blog-article.component';
+import { blogArticleResolver } from './resolvers/blog-article.resolver';
 
 const routes: Routes = [
   {
@@ -41,6 +44,20 @@ const routes: Routes = [
         component: DetailPageComponent
       }
     ]
+  },
+  {
+    path: 'blog',
+    children: [
+      {
+        path: '',
+        component: BlogComponent,
+      },
+      {
+        path: ':articleSlug',
+        resolve: { article: blogArticleResolver },
+        component: BlogArticleComponent,
+      },
+    ],
   },
   {
     path:'contact',
