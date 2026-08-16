@@ -7,7 +7,7 @@
   ></div>
 
   <!-- Contenido principal de la pagina -->
-  <div class="relative z-10" #homeCopy>
+  <div class="relative z-30" #homeCopy>
     <div
       class="flex items-center justify-center h-screen w-full max-xs:h-[90%] text-primary max-xs:flex-col overflow-x-hidden"
     >
@@ -71,8 +71,7 @@
     <button
       type="button"
       aria-label="Shift color"
-      class="pointer-events-auto absolute top-8 right-6 md:top-12 md:right-12 flex items-center justify-center cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 disabled:cursor-wait"
-      [disabled]="isThemeCycling"
+      class="pointer-events-auto absolute top-8 right-6 md:top-12 md:right-12 flex items-center justify-center cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
       (click)="cycleTheme()"
       (mouseenter)="onThemeButtonEnter()"
       (mouseleave)="onThemeButtonLeave()"

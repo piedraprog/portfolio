@@ -109,6 +109,10 @@ export class HomepageComponent implements AfterViewInit, OnDestroy {
   }
 
   cycleTheme(): void {
+    if (this.isThemeCycling) {
+      return;
+    }
+
     const nextTheme = this.portfolioTheme.peekNext();
     if (this.prefersReducedMotion()) {
       this.portfolioTheme.apply(nextTheme);
@@ -127,7 +131,7 @@ export class HomepageComponent implements AfterViewInit, OnDestroy {
   }
 
   onThemeButtonEnter(): void {
-    if (this.prefersReducedMotion() || this.isThemeCycling) {
+    if (this.prefersReducedMotion()) {
       return;
     }
 
@@ -184,10 +188,10 @@ export class HomepageComponent implements AfterViewInit, OnDestroy {
 
     this.themeWipe.to(copyLines, {
       autoAlpha: 0,
-      y: -24,
-      duration: 0.4,
-      stagger: 0.08,
-      ease: 'power3.in',
+      y: -16,
+      duration: 0.55,
+      stagger: { each: 0.1, ease: 'none' },
+      ease: 'power2.in',
     });
     this.themeWipe.fromTo(
       bars,
@@ -199,14 +203,20 @@ export class HomepageComponent implements AfterViewInit, OnDestroy {
     });
     this.themeWipe.fromTo(
       copyLines,
-      { autoAlpha: 0, y: 24 },
+      { autoAlpha: 0, y: 18 },
       {
         autoAlpha: 1,
         y: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        ease: 'power3.out',
+        duration: 0.7,
+        stagger: { each: 0.12, ease: 'none' },
+        ease: 'power2.out',
       },
+      '-=0.2',
+    );
+    this.themeWipe.to(
+      bars,
+      { autoAlpha: 0, duration: 0.45, ease: 'power1.out' },
+      '<0.15',
     );
   }
 
