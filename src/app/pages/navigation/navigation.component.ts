@@ -1,8 +1,16 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Observable, Subscription, map } from 'rxjs';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnDestroy,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { gsap } from 'gsap';
 import { ScreenSizeService } from '../../services/screensize.service';
 import { Router } from '@angular/router';
 import { ShowIconService } from '../../services/show-arrow.service';
+import { NAV_MENU_ITEMS, NavMenuItem } from '../../interfaces/nav-menu-item';
 
 @Component({
     selector: 'app-navigation',
@@ -11,31 +19,26 @@ import { ShowIconService } from '../../services/show-arrow.service';
     standalone: false
 })
 
-export class NavigationComponent {
+export class NavigationComponent implements AfterViewInit, OnDestroy {
 
   screenWidth!: number;
   screenWidthSubscription: Subscription = new Subscription;
   isScreenWidthGreaterThan800!: boolean;
-  isScreenHeightValid$: Observable<boolean>;
 
   startPosition: string = "";
 
   iconClass: string = '';
 
-  menuItems = [
-    { label: 'About', route: 'about' },
-    { label: 'Portfolio', route: 'portfolio' },
-    // Uncomment and add more items as needed
-    // { label: 'Resources', route: 'resources' },
-    { label: 'Contact', route: 'contact' }
-  ];
+  menuItems: NavMenuItem[] = NAV_MENU_ITEMS;
+
+  private gsapContext?: gsap.Context;
 
   constructor(
     private screenSizeService: ScreenSizeService,
     private router: Router,
-    private showIconService: ShowIconService
+    private showIconService: ShowIconService,
+    private readonly host: ElementRef<HTMLElement>,
   ) {
-    this.isScreenHeightValid$ = this.screenSizeService.isScreenHeightValid();
     
   }
 
@@ -56,12 +59,36 @@ export class NavigationComponent {
     });
   }
 
-  ngOnDestroy() {
-    this.screenWidthSubscription.unsubscribe();
+  ngAfterViewInit(): void {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    this.gsapContext = gsap.context(() => {
+      gsap.from('.nav-menu-item', {
+        autoAlpha: 0,
+        x: -48,
+        duration: 0.55,
+        stagger: 0.08,
+        ease: 'power3.out',
+      });
+    }, this.host.nativeElement);
   }
 
-  goTo(route: string) {
-    this.router.navigate([`/${route}`])
+  ngOnDestroy() {
+    this.screenWidthSubscription.unsubscribe();
+    this.gsapContext?.revert();
+  }
+
+  goTo(item: NavMenuItem): void {
+    if (!item.available) {
+      return;
+    }
+    this.router.navigate([`/${item.route}`])
+  }
+
+  closeMenu(): void {
+    this.router.navigate(['/home']);
   }
 
   onMouseEnter(): void {

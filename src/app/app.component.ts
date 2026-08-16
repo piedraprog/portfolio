@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { PortfolioThemeService } from './services/portfolio-theme.service';
 
 @Component({
     selector: 'app-root',
@@ -8,8 +9,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     standalone: false
 })
 export class AppComponent  {
-  currentClass!: string;
-  constructor() {
+  constructor(readonly portfolioTheme: PortfolioThemeService) {
     // this.currentClass = localStorage.getItem('theme') || 'monochrome';
     // document.body.classList.add(this.currentClass);
   }

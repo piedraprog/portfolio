@@ -1,5 +1,5 @@
-<div class="flex items-center h-full">
-  <div class="ml-10 w-3 md:h-[46vh] bg-primary 3xl:h-[40vh] 3xl:w-3"></div>
+<div class="flex min-h-screen items-stretch bg-background text-primary">
+  <div class="ml-6 md:ml-10 w-3 self-stretch my-[10vh] bg-primary hidden xs:block"></div>
   <!-- <ul class="font-extrabold text-[22vh] leading-10 text-primary flex-col ">
   <li
     class="ml-3 hover-sideline-animation"
@@ -48,52 +48,38 @@
   </li>
 </ul> -->
 
-  <ul class="
-    font-extrabold text-[10vh] 
-    xs:text-[10vh] md:text-[24vh] 
-    leading-10 text-primary flex-col mt-[-40px] 
-    xs:mt-[-60px] sm:mt-[-80px] 
-    3xl:leading-[15vh]
-    3xl:ml-[70px]"
+  <ul
+    class="flex flex-1 flex-col justify-center gap-[clamp(0.75rem,3vh,3.5rem)] min-h-screen py-[10vh] px-4 md:px-10"
   >
   <!-- TODO: ADD hover colors -->
-  @for (item of menuItems; track item; let i = $index) {
-    <li
-      class="ml-1 max-xs:ml-[-20px] hover:text-hover-color"
-      [style.--start-position]="startPosition"
-      [ngClass]="
-        (isScreenHeightValid$ | async) ? 
-        (i === 0 ? '' : 'pt-[6rem] xs:pt-[7rem] sm:pt-[8rem] md:pt-[9rem]') : 
-        'pt-[4rem] xs:pt-[5rem] sm:pt-[6rem] md:pt-[6rem]' "
-      (mouseenter)="setStartPosition($event)"
+    @for (item of menuItems; track item.route) {
+      <li
+        class="nav-menu-item ml-1"
+        [style.--start-position]="startPosition"
+        (mouseenter)="setStartPosition($event)"
       >
-      <button (click)="goTo(item.route)">
-        {{ item.label }}
-      </button>
-    </li>
-  }
-</ul>
+        <button
+          type="button"
+          class="nav-link font-extrabold uppercase text-left leading-none text-[clamp(2.4rem,9vh,11rem)] hover-underline-animation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+          [class.cursor-pointer]="item.available"
+          [class.cursor-not-allowed]="!item.available"
+          [class.opacity-40]="!item.available"
+          [disabled]="!item.available"
+          [attr.aria-disabled]="!item.available"
+          (click)="goTo(item)"
+        >
+          {{ item.label }}
+        </button>
+      </li>
+    }
+  </ul>
 
-<div class="nav h-screen w-1/2">
-    <button (click)="goTo('home')" class="
-      absolute 
-      top-16 
-      right-16
-      mt-4 mr-4  
-      rounded-full 
-      w-8 h-8 flex 
-      items-center 
-      justify-center 
-      font-semibold
-      text-[6vh]
-      text-primary
-      hover:text-accent
-
-      3xl:top-80
-      3xl:right-96
-    ">
+  <button
+    type="button"
+    (click)="closeMenu()"
+    aria-label="Close menu"
+    class="absolute top-8 right-6 md:top-16 md:right-16 min-w-11 min-h-11 flex items-center justify-center font-semibold text-[clamp(1.5rem,4vh,4rem)] text-primary hover:text-accent cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+  >
     X
   </button>
-
-</div>
 </div>

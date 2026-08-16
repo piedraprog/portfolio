@@ -1,5 +1,8 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { filter } from 'rxjs';
+import { NAVBAR_ITEMS, NavMenuItem } from '../../interfaces/nav-menu-item';
 
 @Component({
     selector: 'app-navbar',
@@ -16,13 +19,20 @@ import { Router } from '@angular/router';
           flex flex-wrap justify-center space-x-2 md:space-x-4 text-[2.5vh] md:text-[4vh]
           font-semibold text-primary
         ">
-        @for (item of items; track item; let i = $index) {
+        @for (item of items; track item.route; let i = $index) {
           <li>
             <button
+              type="button"
               (click)="goTo(item)"
-              [ngClass]="currentRoute == item ? 'underline decoration-4 underline-offset-[1vh]  3xl:decoration-[0.5vh] 3xl:border-r-2' : 'hover-underline-animation'"
+              [disabled]="!item.available"
+              [attr.aria-disabled]="!item.available"
+              [class.cursor-pointer]="item.available"
+              [class.opacity-40]="!item.available"
+              [class.cursor-not-allowed]="!item.available"
+              class="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+              [ngClass]="currentRoute == item.route ? 'underline decoration-4 underline-offset-[1vh]  3xl:decoration-[0.5vh] 3xl:border-r-2' : 'hover-underline-animation'"
               >
-              {{item}}
+              {{item.label}}
             </button>
             @if (i !== items.length -1) {
               <span class="md:inline">,</span>
@@ -36,13 +46,32 @@ import { Router } from '@angular/router';
     standalone: false
 })
 export class NavbarComponent {
-  items: string[] = ["home", "about", "portfolio", "contact"]
+  items: NavMenuItem[] = NAVBAR_ITEMS;
+  currentRoute = '';
 
-  currentRoute = this.router.url.split("/")[1]
-  constructor(private router: Router) { }
+  private readonly destroyRef = inject(DestroyRef);
 
-  goTo(route: string) {
-    this.router.navigate([route])
+  constructor(private router: Router) {
+    this.currentRoute = this.routeSegment(this.router.url);
+    this.router.events
+      .pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe((event) => {
+        this.currentRoute = this.routeSegment(event.urlAfterRedirects);
+      });
+  }
+
+  goTo(item: NavMenuItem): void {
+    if (!item.available) {
+      return;
+    }
+    this.router.navigate([item.route]);
+  }
+
+  private routeSegment(url: string): string {
+    return url.split('/')[1] ?? '';
   }
 
 }

@@ -14,6 +14,7 @@ export interface projects {
   linkName:string;
   siteLink: string;
   repositoryLink: string;
+  videoUrl?: string;
 }
 
 

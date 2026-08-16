@@ -29,11 +29,13 @@ module.exports = {
         'primary': '#272829',
         'background': '#FFF6E0',
         'accent': '#000000',
+        'hover': '#272829',
       },
       greenVeige : {
         'primary': '#105717',
         'background': '#F8F4E1',
         'accent': '#1E1E1E',
+        'hover': '#105717',
       },
       // blueVeige: {
       //   'primary': '#0C1844',
@@ -44,11 +46,13 @@ module.exports = {
         'primary': '#00224D',
         'background': '#A0153E',
         'brand': '#000000',
+        'hover': '#00224D',
       },
       blueOrange:{
         'primary': '#0C1844',
         'background': '#FE3C01',
         'brand': '#000000',
+        'hover': '#0C1844',
       }
     })
   ],

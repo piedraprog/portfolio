@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { AboutExperienceRow } from '../../interfaces/about-experience-row';
 
 @Component({
     selector: 'app-about',
@@ -12,9 +13,9 @@ export class AboutComponent {
 
   linkdnUrl: string = "https://www.linkedin.com/in/drapie/"
 
-  tableColums: any[] = ["job","company","time"]
+  tableColums: Array<keyof AboutExperienceRow> = ["job","company","time"]
   
-  tableInfo: any[] = [
+  tableInfo: AboutExperienceRow[] = [
     {
       job: "Frontend Developer",
       company: "Tikket",

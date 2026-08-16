@@ -1,13 +1,13 @@
-<div class="relative min-h-screen bg-background">
+<div class="relative min-h-screen bg-background" #homeStage>
   <!-- Contenedor de barras en el fondo con z-index bajo -->
   <div
     id="bars-container"
-    class="absolute top-0 left-0 w-full h-full flex flex-col justify-around z-0 pointer-events-none"
+    class="absolute top-0 left-0 w-full h-full flex flex-col justify-around z-20 pointer-events-none"
     #barsContainer
   ></div>
 
   <!-- Contenido principal de la pagina -->
-  <div class="relative z-10">
+  <div class="relative z-10" #homeCopy>
     <div
       class="flex items-center justify-center h-screen w-full max-xs:h-[90%] text-primary max-xs:flex-col overflow-x-hidden"
     >
@@ -15,30 +15,31 @@
         <div
           class="flex flex-col items-center xs:flex-row xs:items-end ml-0 max-xs:ml-0 max-xs:pt-52"
         >
-          <h2
+          <h1
+            appSectionHero
             class="text-[10vh] max-xs:text-[14vh] md:text-[20vh] lg:text-[15vw] uppercase font-extrabold leading-none md:ml-3 3xl:text-[12vw]"
           >
             José
-          </h2>
-          <h2
+          </h1>
+          <p
             class="text-[20px] max-xs:text-[18px] sm:text-[30px] lg:text-[2vw] uppercase font-semibold leading-none relative-adjustment mb-2 xs:mb-6"
           >
             From Caracas, Venezuela
-          </h2>
+          </p>
         </div>
 
-        <h2
+        <p
           class="text-[10vh] xs:text-[14vh] sm:text-[20vh] md:text-[28vh] lg:text-[15vw] uppercase font-extrabold leading-10 pt-4 xs:pt-8 sm:pt-12 3xl:mt-[7vh] 3xl:text-[12vw]"
         >
           {{ typedText$ | async }}
-        </h2>
-        <h3
+        </p>
+        <p
           class="text-[4vh] xs:text-[5vh] sm:text-[6vh] lg:text-[3vw] uppercase font-normal pt-8 xs:pt-12 sm:pt-16 ml-1 sm:ml-3 3xl:text-[2vw] 3xl:pt-[9vh]"
         >
           {{ typedTitle$ | async }}
-        </h3>
+        </p>
         <div
-          class="flex w-full md:justify-start max-xs:justify-center pt-4 xs:pt-6 sm:pt-8"
+          class="flex w-full items-center gap-6 md:justify-start max-xs:justify-center pt-4 xs:pt-6 sm:pt-8"
         >
           <app-socials-nav
             class="flex text-[2vh] xs:text-[3vh] lg:text-[1.5vw] font-semibold xs:ml-3"
@@ -47,10 +48,11 @@
       </div>
 
       <div
-        class="flex justify-center md:justify-center w-full md:w-1/3 h-full pt-4 md:pt-[-4rem]"
+        class="flex justify-center md:justify-center w-full md:w-1/3 h-full pt-4 md:-mt-16"
       >
         <button
-          class="text-[2vh] xs:text-[3vh] lg:text-[1.5vw] font-semibold self-end mb-8 xs:mb-16 md:mb-28 xs:text-nowrap md:mr-28 3xl:text-[1.5vw] 3xl:mb-[20vh]"
+          type="button"
+          class="cursor-pointer text-[2vh] xs:text-[3vh] lg:text-[1.5vw] font-semibold self-end mb-8 xs:mb-16 md:mb-28 xs:text-nowrap md:mr-28 3xl:text-[1.5vw] 3xl:mb-[20vh] hover-underline-animation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
           (click)="gotoNav()"
           (mouseenter)="onMouseEnter()"
           (mouseleave)="onMouseLeave()"
@@ -63,5 +65,28 @@
         </button>
       </div>
     </div>
+  </div>
+
+  <div class="absolute inset-0 z-50 pointer-events-none">
+    <button
+      type="button"
+      aria-label="Shift color"
+      class="pointer-events-auto absolute top-8 right-6 md:top-12 md:right-12 flex items-center justify-center cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 disabled:cursor-wait"
+      [disabled]="isThemeCycling"
+      (click)="cycleTheme()"
+      (mouseenter)="onThemeButtonEnter()"
+      (mouseleave)="onThemeButtonLeave()"
+    >
+      <span class="relative flex h-16 w-16 items-center justify-center">
+        <span
+          #themeRingOuter
+          class="absolute inset-0 rounded-full border-[3px] border-primary"
+        ></span>
+        <span
+          #themeRingInner
+          class="absolute inset-3 rounded-full border-[3px] border-primary"
+        ></span>
+      </span>
+    </button>
   </div>
 </div>

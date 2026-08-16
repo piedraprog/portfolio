@@ -8,7 +8,7 @@ export class TypewriterService {
 
   constructor() { }
 
-  private type({ word, speed, backwards = false }: any) {
+  private type({ word, speed, backwards = false }: { word: string; speed: number; backwards?: boolean }) {
     return interval(speed).pipe(
       map(x => backwards ? word.substring(0, word.length - x) : word.substring(0, x + 1)),
       take(word.length)

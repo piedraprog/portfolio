@@ -19,6 +19,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AngularMaterialModule } from './material-module.module';
 
 import { ToastrModule } from 'ngx-toastr';
+import { SectionHeroDirective } from './directives/section-hero.directive';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ToastrModule } from 'ngx-toastr';
     ScrollingTextComponent,
     ProjectHeroComponent,
     SocialsNavComponent,
+    SectionHeroDirective,
   ],
   imports: [
     BrowserModule,

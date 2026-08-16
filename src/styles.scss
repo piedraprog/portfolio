@@ -4,7 +4,7 @@
 @tailwind utilities;
 // @import "@coreui/coreui/scss/coreui";
 // regular style toast
-@import 'ngx-toastr/toastr';
+// ngx-toastr styles load from angular.json to avoid deprecated Sass @import
 
 // // bootstrap style toast
 // // or import a bootstrap 4 alert styled design (SASS ONLY)
@@ -25,6 +25,18 @@
     margin: 0;
     padding: 0;
 
+}
+
+html,
+body {
+    transition: color 0.55s ease, background-color 0.55s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html,
+    body {
+        transition: none;
+    }
 }
 
 @font-face {
@@ -48,6 +60,8 @@
 
     .hover-underline-animation {
         position: relative;
+        color: inherit;
+        transition: color 0.55s ease;
     }
 
     .hover-underline-animation::before {
@@ -61,11 +75,12 @@
         visibility: hidden;
         transform: scaleX(0);
         transform-origin: left;
-        transition: all 0.3s ease-in-out;
+        transition: transform 0.25s ease-out, color 0.55s ease, background-color 0.55s ease;
         border-radius: 50px;
     }
 
-    .hover-underline-animation:hover::before {
+    .hover-underline-animation:hover::before,
+    .hover-underline-animation:focus-visible::before {
         visibility: visible;
         transform: scaleX(1);
     }

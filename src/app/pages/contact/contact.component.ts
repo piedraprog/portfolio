@@ -21,13 +21,14 @@ import { Clipboard } from "@angular/cdk/clipboard";
             send me a message
           </p>
           <button (click)="showSuccess()">
-            <h1 class="
+            <h1 appSectionHero class="
               font-bold 
               text-[15vh]
               uppercase 
               text-center 
               hover:text-accent 
-              max-md:text-4xl"
+              max-md:text-4xl
+              cursor-pointer"
               >
               {{email}}
             </h1>
